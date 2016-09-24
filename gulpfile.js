@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     gulpIf = require('gulp-if'),
     jshint = require('gulp-jshint'),
+    run = require('gulp-run'),
     plumber = require('gulp-plumber'),
     cssnano = require('gulp-cssnano'),
     imagemin = require('gulp-imagemin'),
@@ -89,6 +90,18 @@ gulp.task('build', function(callback) {
     )
 });
 
-gulp.task('heroku:production', function(){
-  runSequence('clean:dist')
+gulp.task('install', function() {
+    return run('cd src/ && npm install && cd ../').exec()
+        .pipe(gulp.dest('output'));
+});
+
+gulp.task('server', function(){
+    return run('node server.js').exec()
+        .pipe(gulp.dest('output'));
+});
+
+gulp.task('heroku:production', function(callback){
+    runSequence(['install','build', 'server'],
+        callback
+    )
 });
