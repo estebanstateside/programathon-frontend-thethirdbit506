@@ -97,9 +97,9 @@ gulp.task('install', function() {
 gulp.task('server', function(){
     return run('npm start').exec();
 });
-// 
-// gulp.task('heroku:production', function(callback){
-//     runSequence(['ins],
-//         callback
-//     )
-// });
+
+gulp.task('heroku:production', function(callback){
+    runSequence(['install'],
+        callback
+    )
+});
