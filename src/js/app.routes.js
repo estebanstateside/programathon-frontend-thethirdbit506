@@ -2,10 +2,10 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .config(function($locationProvider, $routeProvider, $httpProvider) {
+        .config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {
             $routeProvider
                 .when('/inicio', {
-                    templateUrl: 'views/bootstrap-dashboard/login.html',
+                    templateUrl: 'views/login.html',
                     controller: 'LoginController',
                     controllerAs: 'login'
                 })
