@@ -22,7 +22,7 @@
                     controllerAs: 'admin'
                 })
                 .otherwise({
-                    redirectTo: '/registro'
+                    redirectTo: '/inicio'
                 });
             $locationProvider.html5Mode(false);
         });
