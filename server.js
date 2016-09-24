@@ -16,4 +16,5 @@ app.use(function(req, res) {
 });
 
 app.listen(process.env.PORT || config.port);
+
 console.log('Express started on port ' + config.port + '...');

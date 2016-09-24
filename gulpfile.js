@@ -99,7 +99,7 @@ gulp.task('server', function(){
 });
 
 gulp.task('heroku:production', function(callback){
-    runSequence(['install'],
+    runSequence(['build', 'server'],
         callback
     )
 });
