@@ -2,10 +2,13 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('LoginController', ['dataService', 'Notification', LoginController]);
+        .controller('LoginController', ['dataService', 'Notification', 'config', LoginController]);
 
-    function LoginController(dataService, Notification) {
+    function LoginController(dataService, Notification, config) {
         var vm = this;
+
+        vm.title = config.title;
+        
         vm.formData = {};
 
         dataService.getCountries().then(function(data) {
