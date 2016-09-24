@@ -63,6 +63,7 @@ gulp.task('useref', function() {
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(gulp.dest(path.join(__dirname, build)));
 });
+
 // .pipe(gulpIf('*.js', uglify()))
 
 gulp.task('clean:dist', function() {
@@ -95,14 +96,6 @@ gulp.task('build', function(callback) {
     runSequence('clean:dist', ['sass','useref', 'copy'],
         callback
     )
-});
-
-gulp.task('install', function() {
-    return run('cd src && npm install').exec();
-});
-
-gulp.task('server', function(){
-    return run('npm start').exec();
 });
 
 gulp.task('heroku:production', function(callback){
