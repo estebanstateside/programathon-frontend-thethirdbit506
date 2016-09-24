@@ -106,7 +106,7 @@ gulp.task('server', function(){
 });
 
 gulp.task('heroku:production', function(callback){
-    runSequence(['build', 'server'],
+    runSequence(['build'],
         callback
     )
 });
