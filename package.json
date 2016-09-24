@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "gulp",
-	"build": "gulp build:dist"
+	"build": "gulp build"
   },
   "keywords": [],
   "author": "",
