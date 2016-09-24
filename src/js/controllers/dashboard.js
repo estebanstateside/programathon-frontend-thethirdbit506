@@ -7,7 +7,8 @@
         function AdminController (config, dataService) {
             var vm = this;
 
-            vm.title = 'Panel de Métricas – ' + 'PYME';
+            vm.title = 'Panel de Métricas';
+            vm.businessName = 'PYME';
 
             vm.send = function (data) {
                 console.log(data);
