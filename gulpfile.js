@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache'),
+    copy = require('gulp-copy'),
     del = require('del'),
     runSequence = require('run-sequence'),
     config = require('./config');
@@ -72,9 +73,15 @@ gulp.task('cache:clear', function(callback) {
     return cache.clearAll(callback)
 });
 
+gulp.task('copy', function(){
+    return gulp.src(path.join(__dirname, source, 'views', '*.html'))
+        .pipe(gulp.dest(path.join(__dirname, build, 'views')));
+})
+
 gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch(path.join(__dirname, source, 'css', '**', '*.scss'), ['sass']);
     gulp.watch(path.join(__dirname, source, '*.html'), browserSync.reload);
+    gulp.watch(path.join(__dirname, source, 'views', '*.html'), browserSync.reload);
     gulp.watch(path.join(__dirname, source, 'js', '*.js'), ['lint'], browserSync.reload);
 });
 
@@ -85,7 +92,7 @@ gulp.task('default', function(callback) {
 });
 
 gulp.task('build', function(callback) {
-    runSequence('clean:dist', ['sass','useref'],
+    runSequence('clean:dist', ['sass','useref', 'copy'],
         callback
     )
 });

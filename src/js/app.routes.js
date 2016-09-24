@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .config(function($locationProvider, $routeProvider) {
+        .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
             $routeProvider
                 .when('/inicio', {
                     templateUrl: 'views/login.html',
@@ -13,5 +13,5 @@
                     redirectTo: '/inicio'
                 });
             $locationProvider.html5Mode(true);
-        });
+        }]);
 })();
