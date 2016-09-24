@@ -13,10 +13,11 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache'),
     del = require('del'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    config = require('./config');
 
-var source = 'src',
-    build = 'dist';
+var source = config.source,
+    build = config.build;
 
 var onError = function(err) {
     console.log(err);
