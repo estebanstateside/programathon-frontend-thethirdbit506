@@ -95,7 +95,7 @@ gulp.task('install', function() {
 });
 
 gulp.task('server', function(){
-    return run('npm run lift').exec();
+    return run('npm start').exec();
 });
 
 gulp.task('heroku:production', function(callback){
