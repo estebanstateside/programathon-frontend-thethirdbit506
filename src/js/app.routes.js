@@ -1,15 +1,17 @@
 (function() {
     'use strict';
     angular
-        .module('app')
+        .module('pymeFbApp')
         .config(function($locationProvider, $routeProvider) {
             $routeProvider
-                .when('/', {
-                    template: 'index.html'
+                .when('/inicio', {
+                    templateUrl: 'views/login.html',
+                    controller: 'LoginController',
+                    controllerAs: 'login',
                 })
                 .otherwise({
-                    redirectTo: '/'
+                    redirectTo: '/inicio'
                 });
-            $locationProvider.html5Mode(true).hashPrefix('!');
+            $locationProvider.html5Mode(true);
         });
 })();
