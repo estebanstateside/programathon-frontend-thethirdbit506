@@ -91,15 +91,15 @@ gulp.task('build', function(callback) {
 });
 
 gulp.task('install', function() {
-    return run('cd src && npm install && cd ../').exec();
+    return run('cd src && npm install').exec();
 });
 
 gulp.task('server', function(){
     return run('npm start').exec();
 });
-
-gulp.task('heroku:production', function(callback){
-    runSequence(['install','build', 'server'],
-        callback
-    )
-});
+// 
+// gulp.task('heroku:production', function(callback){
+//     runSequence(['ins],
+//         callback
+//     )
+// });
