@@ -84,6 +84,7 @@ gulp.task('watch', ['browserSync', 'sass'], function() {
     gulp.watch(path.join(__dirname, source, '*.html'), browserSync.reload);
     gulp.watch(path.join(__dirname, source, 'views', '*.html'), browserSync.reload);
     gulp.watch(path.join(__dirname, source, 'js', '*.js'), ['lint'], browserSync.reload);
+    gulp.watch(path.join(__dirname, source, 'js', '**,' '*.js'), ['lint'], browserSync.reload);
 });
 
 gulp.task('default', function(callback) {
