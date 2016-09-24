@@ -5,7 +5,7 @@
         .config(function($locationProvider, $routeProvider) {
             $routeProvider
                 .when('/inicio', {
-                    templateUrl: 'views/login.html',
+                    templateUrl: 'views/bootstrap-dashboard/login.html',
                     controller: 'LoginController',
                     controllerAs: 'login'
                 })
