@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('AdminController', ['config', AdminController]);
+        .controller('AdminController', ['config', 'dataService', AdminController]);
 
-        function AdminController (config) {
+        function AdminController (config, dataService) {
             var vm = this;
 
-            vm.title = config.title;
+            vm.title = 'Panel de Métricas – ' + 'PYME';
 
             vm.send = function (data) {
                 console.log(data);
