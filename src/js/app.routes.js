@@ -16,9 +16,14 @@
                     controllerAs: 'register'
                 })
                 
+                .when('/administrador', {
+                    templateUrl: 'views/dashboard.html',
+                    controller: 'AdminController',
+                    controllerAs: 'admin'
+                })
                 .otherwise({
                     redirectTo: '/registro'
                 });
-            $locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(false);
         });
 })();
