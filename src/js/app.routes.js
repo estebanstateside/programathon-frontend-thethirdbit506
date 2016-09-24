@@ -5,13 +5,25 @@
         .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
             $routeProvider
                 .when('/inicio', {
-                    templateUrl: 'views/login.html',
+                    templateUrl: 'views/bootstrap-dashboard/login.html',
                     controller: 'LoginController',
-                    controllerAs: 'login',
+                    controllerAs: 'login'
+                })
+
+                .when('/registro', {
+                    templateUrl: 'views/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'register'
+                })
+
+                .when('/administrador', {
+                    templateUrl: 'views/dashboard.html',
+                    controller: 'AdminController',
+                    controllerAs: 'admin'
                 })
                 .otherwise({
-                    redirectTo: '/inicio'
+                    redirectTo: '/registro'
                 });
-            $locationProvider.html5Mode(true);
-        }]);
+            $locationProvider.html5Mode(false);
+        });
 })();
