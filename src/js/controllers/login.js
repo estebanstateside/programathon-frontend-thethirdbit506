@@ -8,12 +8,16 @@
         var vm = this;
 
         vm.title = config.title;
-        
+
         vm.formData = {};
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
         });
+
+        vm.cleanForm = function() {
+            vm.formData = {};
+        };
 
         vm.send = function(isValid) {
             if (isValid) {
