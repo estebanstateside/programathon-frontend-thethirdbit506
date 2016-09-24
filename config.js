@@ -1,5 +1,5 @@
 module.exports = {
     source: 'src',
-    build: 'dist',
+    build: 'public',
     port: 5000
 }

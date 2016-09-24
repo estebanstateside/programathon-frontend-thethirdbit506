@@ -1,1 +1,1 @@
-web: echo hello world
+web: node node_modules/gulp/bin/gulp heroku:production

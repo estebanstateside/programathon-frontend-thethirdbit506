@@ -85,7 +85,7 @@ gulp.task('default', function(callback) {
 });
 
 gulp.task('build', function(callback) {
-    runSequence('clean:dist', ['sass', 'lint','useref', 'images'],
+    runSequence('clean:dist', ['sass','useref', 'images'],
         callback
     )
 });
@@ -99,7 +99,7 @@ gulp.task('server', function(){
 });
 
 gulp.task('heroku:production', function(callback){
-    runSequence(['install'],
+    runSequence(['install', 'build', 'server'],
         callback
     )
 });
