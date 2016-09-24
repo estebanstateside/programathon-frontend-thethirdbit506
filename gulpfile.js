@@ -60,10 +60,10 @@ gulp.task('browserSync', function() {
 gulp.task('useref', function() {
     return gulp.src(path.join(__dirname, source, '*.html'))
         .pipe(useref())
-        .pipe(gulpIf('*.js', uglify()))
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(gulp.dest(path.join(__dirname, build)));
 });
+// .pipe(gulpIf('*.js', uglify()))
 
 gulp.task('clean:dist', function() {
     return del.sync(path.join(__dirname, build));

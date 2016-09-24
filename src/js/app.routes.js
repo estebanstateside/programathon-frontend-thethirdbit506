@@ -5,7 +5,7 @@
         .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
             $routeProvider
                 .when('/inicio', {
-                    templateUrl: 'views/bootstrap-dashboard/login.html',
+                    templateUrl: 'views/login.html',
                     controller: 'LoginController',
                     controllerAs: 'login'
                 })
@@ -25,5 +25,5 @@
                     redirectTo: '/registro'
                 });
             $locationProvider.html5Mode(false);
-        });
+        }]);
 })();
