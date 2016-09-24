@@ -91,13 +91,11 @@ gulp.task('build', function(callback) {
 });
 
 gulp.task('install', function() {
-    return run('cd src/ && npm install && cd ../').exec()
-        .pipe(gulp.dest('output'));
+    return run('cd src && npm install && cd ../').exec();
 });
 
 gulp.task('server', function(){
-    return run('node server.js').exec()
-        .pipe(gulp.dest('output'));
+    return run('npm run lift').exec();
 });
 
 gulp.task('heroku:production', function(callback){
