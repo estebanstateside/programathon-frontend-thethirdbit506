@@ -1,5 +1,3 @@
-$color-red: red;
-
-* {
-    background-color: $color-red;
-}
+@import "base/_base.scss";
+@import "modules/_modules.scss";
+@import "pages/_pages.scss";
