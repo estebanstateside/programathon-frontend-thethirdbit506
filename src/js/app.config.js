@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('app')
+        .module('pymeFbApp')
         .constant('config', {
             'title': 'La Voz del Cliente'
         });
