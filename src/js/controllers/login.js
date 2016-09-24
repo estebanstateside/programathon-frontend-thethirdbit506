@@ -2,13 +2,22 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('LoginController', [LoginController]);
+        .controller('LoginController', ['dataService', 'Notification', LoginController]);
 
-        function LoginController () {
-            var vm = this;
+    function LoginController(dataService, Notification) {
+        var vm = this;
+        vm.formData = {};
 
-            vm.send = function (data) {
-                console.log(data);
+        dataService.getCountries().then(function(data) {
+            vm.countries = data.data;
+        });
+
+        vm.send = function(isValid) {
+            if (isValid) {
+                console.log(vm.formData);
+            } else {
+                Notification.error('¡Faltan algunos campos requeridos!');
             }
         };
+    };
 })();

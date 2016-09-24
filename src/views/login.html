@@ -2,16 +2,30 @@
     <div class="col-md-4 col-md-offset-4">
         <div class="login-panel panel panel-default">
             <div class="panel-body">
-                <form role="form">
+                <form role="form" name="loginForm" novalidate>
                     <fieldset>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Correo electrónico" ng-model="loginData.email" name="email" type="email" autofocus>
+                            <input class="form-control" placeholder="Nombre Comercial" ng-model="login.formData.NombreComercio" name="NombreComercio" type="text" autofocus required>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" placeholder="Contraseña" ng-model="loginData.password" name="password" type="password">
+                            <input class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.UsuarioID" name="UsuarioID" type="text" autofocus>
                         </div>
-                        <button class="btn btn-lg btn-success btn-block" ng-click="login.send(loginData)" type="button">Acceder</button>
-                        <a href="/registro" class="btn">No estas registrado?</a>
+                        <div class="form-group">
+                            <label>País</label>
+                            <select class="form-control" ng-model="login.formData.paisID" required>
+                                <option ng-repeat="country in login.countries" value="{{country.id}}">{{country.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Contraseña" ng-model="login.formData.Clave" name="password" type="password" required="">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-lg btn-success btn-block" ng-click="login.send(loginForm.$valid)" type="button">Acceder</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="/registro">¿No estás registrado?</a>
+                            <a href="/registro">¿Olvidaste la contraseña?</a>
+                        </div>
                     </fieldset>
                 </form>
             </div>

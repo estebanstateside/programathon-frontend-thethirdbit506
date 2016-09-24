@@ -8,7 +8,6 @@
     function RegisterController(dataService, Notification) {
         var vm = this;
         vm.formData = {};
-        vm.countries = [];
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
