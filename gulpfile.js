@@ -88,3 +88,7 @@ gulp.task('build', function(callback) {
         callback
     )
 });
+
+gulp.task('heroku:production', function(){
+  runSequence('build')
+});

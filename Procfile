@@ -1,1 +1,1 @@
-web: node node_modules/gulp/bin/gulp build:dist
+web: node node_modules/gulp/bin/gulp heroku:production
