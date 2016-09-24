@@ -7,10 +7,17 @@
                 .when('/inicio', {
                     templateUrl: 'views/login.html',
                     controller: 'LoginController',
-                    controllerAs: 'login',
+                    controllerAs: 'login'
                 })
+                
+                .when('/registro', {
+                    templateUrl: 'views/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'register'
+                })
+                
                 .otherwise({
-                    redirectTo: '/inicio'
+                    redirectTo: '/registro'
                 });
             $locationProvider.html5Mode(true);
         });
