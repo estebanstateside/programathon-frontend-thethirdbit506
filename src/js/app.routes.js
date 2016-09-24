@@ -10,13 +10,13 @@
                     controllerAs: 'login'
                 })
 
-                .when('/registro', {
-                    templateUrl: 'views/register.html',
-                    controller: 'RegisterController',
-                    controllerAs: 'register'
-                })
+            .when('/registro', {
+                templateUrl: 'views/register.html',
+                controller: 'RegisterController',
+                controllerAs: 'register'
+            })
 
-                .when('/administrador', {
+            .when('/administrador', {
                     templateUrl: 'views/dashboard.html',
                     controller: 'AdminController',
                     controllerAs: 'admin'
@@ -27,19 +27,19 @@
             $locationProvider.html5Mode(false);
 
             $httpProvider.interceptors.push([
-              '$injector',
-              function ($injector) {
-                return $injector.get('AuthInterceptor');
-              }
+                '$injector',
+                function($injector) {
+                    return $injector.get('AuthInterceptor');
+                }
             ]);
-        })
-        .factory('AuthInterceptor', function ($rootScope, $q) {
-          return {
-            request: function (response) {
-              console.log('before sending');
-              console.log(response);
-              return response;
-            }
-          };
-        });
+        }])
+        .factory('AuthInterceptor', ['$rootScope', '$q', function($rootScope, $q) {
+            return {
+                request: function(response) {
+                    console.log('before sending');
+                    console.log(response);
+                    return response;
+                }
+            };
+        }]);
 })();
