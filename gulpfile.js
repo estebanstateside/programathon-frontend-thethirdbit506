@@ -90,5 +90,5 @@ gulp.task('build', function(callback) {
 });
 
 gulp.task('heroku:production', function(){
-  runSequence('build')
+  runSequence('clean:dist')
 });
