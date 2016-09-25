@@ -105,7 +105,7 @@
 
                             <div ng-if="!perfil.isRegister" class="form-group">
                                 <label>PYME activa?</label>
-                                <input ng-model="perfil.formData.es_activa" name="es_activa" type="checkbox">
+                                <input ng-model="perfil.formData.es_activa" name="es_activa" type="checkbox" ng-change="perfil.toggleDisable()">
                             </div>
 
                             <div class="form-group">
@@ -116,8 +116,8 @@
                             <div class="form-group">
                                 <label>Adjuntar logo</label>
                                 <div class="file-upload form__image" flow-init>
-                                    <img flow-img="$flow.files[0]" />
-                                    <img ng-if="perfil.loadedFromApi" src="{{perfil.formData.logo}}" alt="" width="225" height="225" />
+                                    <img src="{{perfil.isFile}}"/>
+                                    <img ng-if="!perfil.isFile && perfil.loadedFromApi" src="{{perfil.formData.logo}}" alt="" width="225" height="225" />
                                     <div>
                                         <input type="file" name="logo" flow-btn ngf-select="perfil.file(perfil.formData.logo)" width="225" height="225" ng-model="perfil.formData.logo" required>
                                     </div>
@@ -235,11 +235,12 @@
 
                             <div class="form-group" ng-if="perfil.isRegister">
                                 <label>Repetir correo electrónico contacto</label>
-                                <input type="text" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_contacto" ng-model="perfil.formData.correo_contacto" required>
-                                <div ng-messages="registerForm.correo_contacto.$error" role="alert">
+                                <input type="text" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_contacto_check" ng-model="correo_contacto_check" required match="perfil.formData.correo_contacto">
+                                <div ng-messages="registerForm.correo_contacto_check.$error" role="alert">
                                     <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                                     <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
+                                    <div class="text-danger" ng-message="match">Los correos deben coincidir.</div>
                                 </div>
                             </div>
 

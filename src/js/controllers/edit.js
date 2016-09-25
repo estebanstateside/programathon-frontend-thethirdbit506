@@ -75,6 +75,12 @@
                 vm.formData[prop] = user.data[prop]
             }
         });
+        
+        vm.toggleDisable = function () {
+            if (!vm.formData.es_activa) {
+                Notification.warning(constants.messages.disable_pyme);
+            }
+        }
 
         vm.getYears = function() {
             var actualYear = new Date().getFullYear();
