@@ -63,7 +63,7 @@
                         <label>Año de inicio de operaciones</label>
                         <select class="form-control" name="anno_inicio_operaciones" ng-model="perfil.formData.anno_inicio_operaciones" required>
                           <option value="">Seleccione el año de inicio de operaciones</option>
-                          <option ng-repeat="year in perfil.getYears()" value="{{year % 100}}">{{year}}</option>
+                          <option ng-repeat="year in perfil.getYears()" value="{{year}}">{{year}}</option>
                         </select>
                         <div ng-messages="registerForm.anno_inicio_operaciones.$error" role="alert">
                           <div class="text-danger" ng-message="required">Campo requerido.</div>
