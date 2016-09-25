@@ -7,34 +7,36 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">{{admin.business.nombre_comercio}}</a>
+        <a class="navbar-brand" href="#/administrador">{{admin.business.nombre_comercio}}</a>
     </div>
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
         <!-- /.dropdown -->
-        <li>
+        <li><a href="#/administrador" ng-click="admin.signOut()"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
+        <!-- <li>
             <div class="dropdown">
               <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
               </button>
               <ul class="dropdown-menu">
                 <li><a href="#/inicio"><i class="fa fa-user fa-fw"></i> Perfil de usuario</a></li>
-                <li><a href="#/inicio"><i class="fa fa-gear fa-fw"></i> Edit información</a></li>
+                <li><a href="#/editar"><i class="fa fa-gear fa-fw"></i> Editar información</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#" ng-click="admin.signOut()"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
               </ul>
             </div>
-        </li>
+        </li> -->
         <!-- /.dropdown -->
     </ul>
     <!-- /.navbar-top-links -->
 </nav>
 
-<div id="page-wrapper">
+<div id="page-wrapper" class="dashboard">
     <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">{{admin.title}} – {{admin.business.nombre_comercio}}</h2>
+        <div class="page-header col-lg-12">
+            <h1>{{admin.title}} – <span class="dashboard__title">{{admin.business.nombre_comercio}}</span></h1>
+            <span class="dashboard__edit"><a href="#/editar"><i class="fa fa-pencil fa-fw"></i> Editar información</a></span>
         </div>
         <!-- /.col-lg-12 -->
     </div>

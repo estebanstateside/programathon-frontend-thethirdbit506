@@ -1,0 +1,10 @@
+.nav {
+    li a {
+        color: $color-white;
+        transition: $transition;
+        &:hover {
+            background-color: transparent !important;
+            color: $color-green;
+        }
+    }
+}

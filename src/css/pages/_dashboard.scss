@@ -1,0 +1,20 @@
+.dashboard {
+    .dashboard__title {
+        color: $color-green;
+        font-weight: 200;
+    }
+
+    .dashboard__edit {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        a {
+            color: $color-gray;
+            transition: $transition;
+            &:hover {
+                color: $color-green;
+                text-decoration: none;
+            }
+        }
+    }
+}

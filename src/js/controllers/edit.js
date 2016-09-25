@@ -9,7 +9,7 @@
         var vm = this;
         vm.formData = {};
 
-        vm.title = "Editar";
+        vm.title = "Editar información";
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;

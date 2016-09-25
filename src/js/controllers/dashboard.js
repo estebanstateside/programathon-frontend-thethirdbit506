@@ -9,7 +9,7 @@
                 id = 3;
 
             dataService.getPyme().then(function(data){
-                vm.business = data.data[id];
+                vm.business = data.data[0];
                 console.log(vm.business);
             });
 
