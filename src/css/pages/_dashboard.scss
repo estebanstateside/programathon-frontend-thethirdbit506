@@ -39,12 +39,18 @@
 
     .dashboard__buttons {
         padding-top: 10px;
-        button {
+        .btn {
             &:first-child {
                 margin-right: 0;
             }
             float: right;
             margin-left: 15px;
+        }
+    }
+
+    .dashboard__search {
+        button.btn {
+            margin-top: 25px;
         }
     }
 }

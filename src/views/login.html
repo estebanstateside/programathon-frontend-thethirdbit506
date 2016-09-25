@@ -19,7 +19,7 @@
 
                                 <div class="form-group">
                                     <label for="nombre_usuario">Nombre de Usuario</label>
-                                    <input class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.Usuario" ng-maxlength="50" name="nombre_usuario" type="text" autofocus>
+                                    <input type="text" class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.Usuario" ng-maxlength="50" maxlength="50" name="nombre_usuario" type="text" autofocus required>
                                     <div ng-messages="loginForm.nombre_usuario.$error" role="alert">
                                         <div class="text-danger" ng-message="required">Campo requerido.</div>
                                         <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
@@ -36,7 +36,7 @@
                                         <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="password">Contraseña</label>
                                     <input class="form-control" placeholder="Contraseña" ng-model="login.formData.Clave" name="password" type="password" required ng-pattern="/^([a-zA-Z0-9]){8,10}$/">
@@ -45,7 +45,7 @@
                                         <div class="text-danger" ng-message="pattern">Contraseña no válida.</div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <div class="btn-group btn-group-justified">
                                         <div class="btn-group" role="group">
@@ -54,7 +54,7 @@
                                             </button>
                                         </div>
                                         <div class="btn-group" role="group">
-                                            <button class="btn btn-lg btn-default login__btn__cancel" ng-click="login.cleanForm()" type="button">Cerrar</button>
+                                            <button class="btn btn-lg btn-default login__btn__cancel" type="button">Cancelar</button>
                                         </div>
 
                                     </div>

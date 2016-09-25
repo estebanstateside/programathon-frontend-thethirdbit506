@@ -14,10 +14,11 @@
           vm.business = pyme.data;
 
           vm.socialLinks = [];
+          console.log(vm.business.social);
           for(var x = 0, max = vm.business.social.length; x < max; x++) {
               var obj = {};
-              obj.type = vm.business.social[x] === 'Website' ? 'globe' : vm.business.social[x].type.toLowerCase();
-              obj.name = vm.business.social[x].type;
+              obj.type = vm.business.social[x].type === 'Website' ? 'globe' : vm.business.social[x].type.toLowerCase();
+              obj.name = vm.business.social[x].type === 'Website' ? 'Sitio Web' : vm.business.social[x].type;
               obj.url = vm.business.social[x].Link;
               vm.socialLinks.push(obj);
           }
