@@ -9,8 +9,8 @@
         var vm = this;
 
         vm.formData = {};
-        vm.title = "Registrar";
-        vm.submit = "Registrarse";
+        vm.title = "Registrar PYME";
+        vm.submit = "Registrar PYME";
         vm.userDisabled = false;
         vm.isRegister = true;
         vm.formData.es_negocio_familiar = false;
