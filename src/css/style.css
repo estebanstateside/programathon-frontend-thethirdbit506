@@ -80,8 +80,8 @@
 
 .dashboard .dashboard__buttons {
   padding-top: 10px; }
-  .dashboard .dashboard__buttons button {
+  .dashboard .dashboard__buttons .btn {
     float: right;
     margin-left: 15px; }
-    .dashboard .dashboard__buttons button:first-child {
+    .dashboard .dashboard__buttons .btn:first-child {
       margin-right: 0; }
