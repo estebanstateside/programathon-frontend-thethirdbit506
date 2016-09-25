@@ -105,7 +105,7 @@
 
                             <div ng-if="!perfil.isRegister" class="form-group">
                                 <label>PYME activa?</label>
-                                <input ng-model="perfil.formData.es_activa" name="es_activa" type="checkbox">
+                                <input ng-model="perfil.formData.es_activa" name="es_activa" type="checkbox" ng-change="perfil.toggleDisable()">
                             </div>
 
                             <div class="form-group">

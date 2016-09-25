@@ -41,6 +41,9 @@
   border-color: transparent;
   margin-top: 5%; }
 
+.encuesta__radio_button label {
+  padding-right: 25px; }
+
 .bg__register {
   background-image: url("../img/blurred-background2.jpg");
   background-size: cover; }
