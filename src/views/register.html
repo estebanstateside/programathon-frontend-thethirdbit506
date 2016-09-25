@@ -132,8 +132,7 @@
                             <div class="form-group">
                                 <label>Adjuntar logo</label>
                                 <div class="file-upload form__image" flow-init>
-                                    <img src="{{perfil.isFile}}"/>
-                                    <img ng-if="!perfil.isFile && perfil.loadedFromApi" src="{{perfil.formData.logo}}" alt="" width="225" height="225" />
+                                    <img ng-if="perfil.isFile" src="{{perfil.isFile}}"/>
                                     <div>
                                         <input type="file" name="logo" flow-btn ngf-select="perfil.file(perfil.formData.logo)" width="225" height="225" ng-model="perfil.formData.logo" required>
                                     </div>
@@ -158,36 +157,32 @@
 
                             <div class="form-group">
                                 <label>Dirección Twitter</label>
-                                <input type="text" class="form-control" ng-maxlength="300" name="link_twitter" ng-model="perfil.formData.link_twitter" required>
+                                <input type="text" class="form-control" ng-maxlength="300" name="link_twitter" ng-model="perfil.formData.link_twitter">
                                 <div ng-messages="registerForm.link_twitter.$error" role="alert">
-                                    <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Dirección Linkedin</label>
-                                <input type="text" class="form-control" ng-maxlength="300" name="link_linkedin" ng-model="perfil.formData.link_linkedin" required>
+                                <input type="text" class="form-control" ng-maxlength="300" name="link_linkedin" ng-model="perfil.formData.link_linkedin">
                                 <div ng-messages="registerForm.link_linkedin.$error" role="alert">
-                                    <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Dirección Canal YouTube</label>
-                                <input class="form-control" ng-maxlength="300" name="link_you_tube" ng-model="perfil.formData.link_you_tube" required>
+                                <input class="form-control" ng-maxlength="300" name="link_you_tube" ng-model="perfil.formData.link_you_tube">
                                 <div ng-messages="registerForm.link_you_tube.$error" role="alert">
-                                    <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Página Web</label>
-                                <input type="text" class="form-control" ng-maxlength="300" name="link_pagina_web" ng-model="perfil.formData.link_pagina_web" required>
+                                <input type="text" class="form-control" ng-maxlength="300" name="link_pagina_web" ng-model="perfil.formData.link_pagina_web">
                                 <div ng-messages="registerForm.link_pagina_web.$error" role="alert">
-                                    <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                                 </div>
                             </div>
@@ -195,10 +190,8 @@
 
                             <div class="form-group">
                                 <label>Correo electrónico</label>
-                                <input ng-if="perfil.isRegister" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico" required>
-                                <input ng-if="!perfil.isRegister" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico">
+                                <input  class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico">
                                 <div ng-messages="registerForm.correo_electronico.$error" role="alert">
-                                    <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                                     <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
                                 </div>
@@ -206,9 +199,8 @@
 
                             <div class="form-group" ng-if="perfil.isRegister">
                                 <label>Repetir correo electrónico</label>
-                                <input type="text" class="form-control" match="perfil.formData.correo_electronico" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
+                                <input type="text" class="form-control" match="perfil.formData.correo_electronico" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck">
                                 <div ng-messages="registerForm.CorreoElectronicoCheck.$error" role="alert">
-                                    <div class="text-danger" ng-message="required">Campo requerido.</div>
                                     <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                                     <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
                                     <div class="text-danger" ng-message="match">Los correos deben coincidir.</div>

@@ -59,6 +59,8 @@
                 }
             }
 
+            vm.isFile = vm.formData.logo;
+
             dataService.getCountries().then(function(data) {
                 vm.countries = data.data;
 
@@ -109,6 +111,8 @@
                     vm.isFile = dataUrl;
                 }
             } else {
+                vm.formData.logo = '';
+                vm.isFile = false;
                 Notification.error(constants.messages.errorFile);
             }
         }

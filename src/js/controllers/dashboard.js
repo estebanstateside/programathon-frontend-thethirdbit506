@@ -9,8 +9,30 @@
 
         vm.shared = false;
         vm.loading = false;
+        vm.installed = false;
         vm.responsesAvailable = false;
         vm.isLoadingResponses = false;
+
+        vm.install = function () {
+          var addTab = 'https://www.facebook.com/dialog/pagetab?app_id=1203377526408832&redirect_uri=http://thethirdbitapp.herokuapp.com/';
+
+        }
+
+        vm.share = function () {
+          Facebook.login(function(response) {
+            Facebook.getLoginStatus(function(response) {
+              sharePost(response.authResponse.accessToken);
+            });
+          });
+        }
+
+        function sharePost (user_token) {
+          vm.loading = true;
+          dataService.postToPyme(vm.PymeID, user_token).then(function(response){
+              vm.shared = true;
+              Notification.success('La encuesta fue compartida con exito');
+          });
+        }
 
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
@@ -364,15 +386,6 @@
                 vm.responsesAvailable = false;
             }
         };
-
-        vm.sharePost = function () {
-          vm.loading = true;
-          dataService.postToPyme(vm.PymeID).then(function(response){
-              vm.shared = true;
-              console.log(response);
-              Notification.success('La encuesta fue compartida con exito');
-          });
-        }
 
         dataService.getUser($rootScope.sessionData.UsuarioId).then(function(user){
             vm.user = user.data;
