@@ -34,8 +34,8 @@
 
                   <div class="form-group">
                     <label>Género del Propietario</label>
-                    <select class="form-control" name="singleSelect" name="genero_propietario_id" ng-model="formData.genero_propietario_id" required>
-                      <option value="option-1">Option 1</option>
+                    <select class="form-control" name="genero_propietario_id" ng-model="formData.genero_propietario_id" required>
+                      <option ng-repeat="genero in perfil.genders" value="{{genero.Id}}">{{genero.Nombre}}</option>
                     </select>
                     <div ng-messages="registerForm.genero_propietario_id.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
@@ -44,8 +44,8 @@
 
                   <div class="form-group">
                     <label>Sector</label>
-                    <select class="form-control" name="singleSelect" name="sector_id" ng-model="formData.sector_id" required>
-                      <option value="option-1">Option 1</option>
+                    <select class="form-control" name="sector_id" ng-model="formData.sector_id" required>
+                      <option ng-repeat="sector in perfil.sectors" value="{{sector.Id}}">{{sector.Nombre}}</option>
                     </select>
                     <div ng-messages="registerForm.sector_id.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
@@ -54,8 +54,8 @@
 
                   <div class="form-group">
                     <label>Año de inicio de operaciones</label>
-                    <select class="form-control" name="singleSelect" name="anno_inicio_operaciones" ng-model="formData.anno_inicio_operaciones" required>
-                      <option value="option-1">Option 1</option>
+                    <select class="form-control" name="anno_inicio_operaciones" ng-model="formData.anno_inicio_operaciones" required>
+                      <option ng-repeat="year in perfil.getYears()" value="{{year}}">{{year}}</option>
                     </select>
                     <div ng-messages="registerForm.anno_inicio_operaciones.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
@@ -64,8 +64,8 @@
 
                   <div class="form-group">
                     <label>Selecciona un país</label>
-                    <select class="form-control" name="singleSelect" ng-model="formData.Pais" name="Pais" required>
-                      <option value="option-1">Option 1</option>
+                    <select class="form-control" ng-model="formData.Pais" name="Pais" ng-change="perfil.getStates(formData.Pais)"required>
+                      <option ng-repeat="country in perfil.countries" value="{{country.id}}">{{country.nombre}}</option>
                     </select>
                     <div ng-messages="registerForm.Pais.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
@@ -75,9 +75,10 @@
 
                   <div class="form-group">
                     <label>Provincia / Estado / Departamento</label>
-                    <select class="form-control" name="singleSelect" name="estado_id" ng-model="formData.estado_id" required>
-                      <option value="option-1">Option 1</option>
+                    <select ng-if="perfil.estados.length" class="form-control" name="estado_id" ng-model="formData.estado_id" required>
+                      <option ng-repeat="estado in perfil.estados" value="{{estado.Id}}">{{estado.Nombre}}</option>
                     </select>
+                    <input ng-if="!perfil.estados.length" class="form-control" name="estado_id" ng-model="formData.estado_id" required>
                     <div ng-messages="registerForm.estado_id.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                     </div>

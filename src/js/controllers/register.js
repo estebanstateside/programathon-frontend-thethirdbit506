@@ -44,6 +44,18 @@
             vm.estados = choosenCountry.estados;
         }
 
+        vm.getYears = function () {
+            var actualYear = new Date().getFullYear();
+            var limitYear = 1900;
+            var years = [];
+
+            for (var i = actualYear; i >= limitYear; i--) {
+                years.push(i)
+            };
+
+            return years;
+        }
+
         vm.file  = function (file) {
             var fileReader = new FileReader();
 
