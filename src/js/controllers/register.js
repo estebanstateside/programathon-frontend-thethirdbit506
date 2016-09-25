@@ -7,7 +7,6 @@
 
     function RegisterController(dataService, gendersService, sectorsService, Notification, $location, sessionService) {
         var vm = this;
-        vm.formData = {};
 
         vm.title = "Registrar";
 
@@ -25,15 +24,6 @@
 
         vm.cleanForm = function () {
             vm.formData = {};
-        };
-
-        vm.register = function () {
-            // dataService.register(vm.formData).then(data) {
-            //     // display message Información guardada/actualizada con éxito
-            //      Notification.success('Success notification');
-            //     //redirect to login $location.path( "/" );
-            //
-            // }
         };
 
         vm.getStates = function (id) {
