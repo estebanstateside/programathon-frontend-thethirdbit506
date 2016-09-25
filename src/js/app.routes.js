@@ -58,10 +58,10 @@
 
                 var isPrivate = !(location.path() === '/inicio' || location.path() === '/registro' || location.path() === '/encuesta');
 
-                if (!(isPrivate && sessionService.isValid())) {
+                if (isPrivate && !sessionService.isValid()) {
                     location.path('/inicio');
-                }else if(!rootScope.sessionData){
-                  sessionService.loadToRoot();
+                } else if (!rootScope.sessionData) {
+                    sessionService.loadToRoot();
                 }
 
                 return response;
