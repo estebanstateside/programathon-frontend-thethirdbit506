@@ -9,6 +9,7 @@
 
         vm.shared = false;
         vm.loading = false;
+        vm.responsesAvailable = false;
 
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
@@ -70,6 +71,12 @@
             vm.QuestionFiveAnswerFive = 0;
 
             var dataLength = data.data.length;
+
+            if(dataLength == 0) {
+                vm.responsesAvailable = false;
+            } else {
+                vm.responsesAvailable = true;
+            }
 
             for(var x = 0, max = data.data.length; x < max; x++) {
                 switch(data.data[x].genero_id) {

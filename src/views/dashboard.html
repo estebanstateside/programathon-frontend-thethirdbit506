@@ -73,8 +73,11 @@
           </div>
         </form>
     </div>
-    <div class="row">
-        <div class="col-lg-8 hidden-xs hidden-sm hidden-lg">
+    <div class="row text-center" ng-hide="admin.responsesAvailable">
+        <h3>No hay respuestas hasta el momento.</h3>
+    </div>
+    <div class="row" ng-show="admin.responsesAvailable">
+        <div class="col-lg-8 hidden-xs hidden-sm hidden-lg hidden-md">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
