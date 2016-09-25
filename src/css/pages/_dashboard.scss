@@ -35,6 +35,15 @@
                 text-decoration: none;
             }
         }
+
+        .btn-default {
+            margin: 5px 10px;
+            
+            &:hover {
+                border-color: $color-green;
+                background-color: #fff;
+            }
+        }
     }
 
     .dashboard__buttons {
