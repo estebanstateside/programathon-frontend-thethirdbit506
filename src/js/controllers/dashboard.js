@@ -16,6 +16,7 @@
         });
 
         Facebook.getLoginStatus(function(response) {
+          console.log(response);
           if(response.status === 'connected') {
             vm.loggedIn = true;
           } else {
