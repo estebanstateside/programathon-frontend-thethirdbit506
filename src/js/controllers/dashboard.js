@@ -12,18 +12,13 @@
         vm.responsesAvailable = false;
         vm.isLoadingResponses = false;
 
-        Facebook.login(function(response) {
-          console.log(response);
-        });
-
-        Facebook.getLoginStatus(function(response) {
-          console.log(response);
-          if(response.status === 'connected') {
-            vm.loggedIn = true;
-          } else {
-            vm.loggedIn = false;
-          }
-        });
+        vm.login = function () {
+          Facebook.login(function(response) {
+            Facebook.getLoginStatus(function(response) {
+              console.log(response);
+            });
+          });
+        }
 
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
