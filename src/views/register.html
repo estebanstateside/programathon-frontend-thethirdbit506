@@ -259,7 +259,8 @@
                                     </button>
                                 </div>
                                 <div class="btn-group" role="group">
-                                    <button class="btn btn-lg btn-default login__btn__cancel" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
+                                    <button ng-if="vm.isRegister" class="btn btn-lg btn-default login__btn__cancel" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
+                                    <a ng-if="!vm.isRegister"  href="#/administrador" class="btn btn-lg btn-default login__btn__cancel" type="button">Cancelar</a>
                                 </div>
                             </div>
                         </div>
