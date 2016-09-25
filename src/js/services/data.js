@@ -11,8 +11,12 @@
             return $http.get(constants.api + '/pais');
         }
 
-        function getPyme() {
+        function getPyme(PymeID) {
+          if(PymeID){
+              return $http.get(constants.api + '/pyme/id/' + PymeID);
+          }else{
             return $http.get(constants.api + '/pyme');
+          }
         }
 
         function login(formData) {

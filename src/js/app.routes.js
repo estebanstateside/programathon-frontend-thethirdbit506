@@ -35,7 +35,7 @@
             })
 
             .otherwise({
-                redirectTo: '/inicio'
+                redirectTo: '/administrador'
             });
 
             $locationProvider.html5Mode(false);
