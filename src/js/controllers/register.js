@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', RegisterController]);
+        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', 'sessionService', RegisterController]);
 
-    function RegisterController(dataService, gendersService, sectorsService, Notification) {
+    function RegisterController(dataService, gendersService, sectorsService, Notification, $location, sessionService) {
         var vm = this;
         vm.formData = {};
 
@@ -49,8 +49,12 @@
             console.log(file);
         }
 
-        vm.send = function (data) {
-            console.log(data);
+        vm.send = function (model) {
+            var form = model;
+            form.Logo = vm.isFile;
+            sessionService.register(form).then(function(data){
+                console.log(data);
+            });
         };
     }
 })();
