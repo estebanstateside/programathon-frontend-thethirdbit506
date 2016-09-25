@@ -34,9 +34,23 @@
             });
         }
 
+        // var register = function (data) {
+        //
+        //     return $http({
+        //         url: constants.api + '/pyme',
+        //         method: "POST",
+        //         data: (data)
+        //     });
+        // };
+
+        function register(data) {
+            return $http.post(constants.api + '/pyme', data);
+        }
+
         return {
             getCountries: getCountries,
             login: login,
+            register: register,
             getPyme: getPyme
         }
     }

@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .service('sessionService', ['$rootScope', '$http', '$cookies', '$q', 'constants', sessionService]);
+        .service('sessionService', ['$rootScope', '$http', '$cookies', 'constants', sessionService]);
 
-    function sessionService($rootScope, $http, $cookies, $q, constants) {
+    function sessionService($rootScope, $http, $cookies, constants) {
 
         function isValid() {
             var Usuario = $cookies.get('Usuario') || '';
@@ -50,26 +50,11 @@
             callback();
         }
 
-
-        // var register = function (data) {
-        //
-        //     return $http({
-        //         url: constants.api + '/pyme',
-        //         method: "POST",
-        //         data: (data)
-        //     });
-        // };
-
-        function register(data) {
-            return $http.post(constants.api + '/pyme', data);
-        }
-
         return {
             signIn: signIn,
             signOut: signOut,
             isValid: isValid,
-            loadToRoot: loadToRoot,
-            register: register
+            loadToRoot: loadToRoot
         }
     }
 
