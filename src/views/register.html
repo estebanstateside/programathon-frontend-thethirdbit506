@@ -138,40 +138,45 @@
 
                       <div class="form-group">
                         <label>Dirección Facebook</label>
-                        <input class="form-control" name="link_facebook" ng-maxlength="300" ng-model="perfil.formData.link_facebook">
+                        <input class="form-control" name="link_facebook" ng-maxlength="300" ng-model="perfil.formData.link_facebook" required>
                         <div ng-messages="registerForm.link_facebook.$error" role="alert">
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label>Dirección Twitter</label>
-                        <input class="form-control" ng-maxlength="300" name="link_twitter" ng-model="perfil.formData.link_twitter">
+                        <input class="form-control" ng-maxlength="300" name="link_twitter" ng-model="perfil.formData.link_twitter" required>
                         <div ng-messages="registerForm.link_twitter.$error" role="alert">
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label>Dirección Linkedin</label>
-                        <input class="form-control" ng-maxlength="300" name="link_linkedin" ng-model="perfil.formData.link_linkedin">
+                        <input class="form-control" ng-maxlength="300" name="link_linkedin" ng-model="perfil.formData.link_linkedin" required>
                         <div ng-messages="registerForm.link_linkedin.$error" role="alert">
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label>Dirección Canal YouTube</label>
-                        <input class="form-control" ng-maxlength="300" name="link_you_tube" ng-model="perfil.formData.link_you_tube">
+                        <input class="form-control" ng-maxlength="300" name="link_you_tube" ng-model="perfil.formData.link_you_tube" required>
                         <div ng-messages="registerForm.link_you_tube.$error" role="alert">
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label>Página Web</label>
-                        <input class="form-control" ng-maxlength="300" name="link_pagina_web" ng-model="perfil.formData.link_pagina_web">
+                        <input class="form-control" ng-maxlength="300" name="link_pagina_web" ng-model="perfil.formData.link_pagina_web" required>
                         <div ng-messages="registerForm.link_pagina_web.$error" role="alert">
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                         </div>
                       </div>
