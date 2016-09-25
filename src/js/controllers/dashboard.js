@@ -11,9 +11,10 @@
 
         Facebook.login(function(response) {
           console.log(response);
-          Facebook.api('/me', function(response) {
-            console.log(response);
-          });
+        });
+
+        Facebook.api('/me', function(response) {
+          console.log(response);
         });
 
         dataService.getPyme($rootScope.sessionData.PymeID).then(function(pyme){
