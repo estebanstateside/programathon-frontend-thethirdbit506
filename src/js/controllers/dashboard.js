@@ -2,15 +2,13 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('AdminController', ['config', 'dataService', 'sessionService', '$location', AdminController]);
+        .controller('AdminController', ['config', 'dataService', 'sessionService', '$location', '$rootScope', AdminController]);
 
-    function AdminController(config, dataService, sessionService, $location) {
-        var vm = this,
-            id = 3;
+    function AdminController(config, dataService, sessionService, $location, $rootScope) {
+        var vm = this;
 
-        dataService.getPyme().then(function(data) {
-            vm.business = data.data[0];
-            console.log(vm.business);
+        dataService.getPyme($rootScope.sessionData.PymeID).then(function(pyme){
+          vm.business = pyme.data;
         });
 
         vm.title = 'Panel de Métricas';

@@ -221,7 +221,7 @@
                     </div>
                   </div>
 
-                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
+                  <button class="btn btn-lg btn-success btn-block" disabled=!perfil.formData.$valid ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
                   <button class="btn btn-lg btn-danger btn-block" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
                 </form>
             </div>
