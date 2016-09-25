@@ -12,7 +12,8 @@
         vm.title = "Editar información";
         vm.submit = "Actualizar información";
         vm.loadedFromApi = false;
-        
+        vm.userDisabled = true;
+
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
         });

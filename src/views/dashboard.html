@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-xs-12 col-md-2">
             <a href="#" class="thumbnail">
-              <img src="{{admin.business.logo}}" alt="{{admin.business.logo}}" height="100" width="100">
+              <img ng-src="{{admin.business.logo}}" height="100" width="100">
             </a>
         </div>
         <div class="col-xs-12 col-md-5 dashboard__data">
@@ -39,11 +39,12 @@
                 <i class="fa fa-calendar fa-fw"></i> Fecha final: <span>{{admin.time}}</span>
             </h4>
             <div class="btn-group dashboard__social" role="group">
-              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-facebook fa-fw"></i> Facebook</a></button>
+              <!-- <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-facebook fa-fw"></i> Facebook</a></button>
               <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-twitter fa-fw"></i>  Twitter</a></button>
               <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-youtube fa-fw"></i>  Youtube</a></button>
               <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-linkedin fa-fw"></i>  LinkedIn</a></button>
-              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-globe fa-fw"></i>  Sitio web</a></button>
+              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-globe fa-fw"></i>  Sitio web</a></button> -->
+              <button ng-repeat="item in admin.socialLinks" type="button" class="btn btn-default"><a href="{{item.url}}" target="_blank"><i class="fa fa-{{item.type}} fa-fw"></i>  {{ item.name }} </a></button>
             </div>
         </div>
         <div class="col-xs-12 col-md-5 dashboard__buttons">

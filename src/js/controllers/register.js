@@ -10,7 +10,8 @@
 
         vm.title = "Registrar";
         vm.submit = "Registrarse";
-        
+        vm.userDisabled = false;
+
         vm.isPosting = false;
 
         dataService.getCountries().then(function(data) {
@@ -70,10 +71,10 @@
                 .then(function(data) {
                     if (data.statusText === 'Created') {
                         vm.formData.PymeID = data.data.id;
-                        vm.formData.usuarioID = data.data.id_user;
+                        vm.formData.UsuarioId = data.data.id_user;
                         vm.formData.Usuario = vm.formData.nombre_usuario;
                         vm.formData.PaisID = vm.formData.pais;
-                    
+
                         if (vm.formData.PymeID && vm.formData.usuarioID) {
                             sessionService.signIn(vm.formData, function() {
                                 $location.path('/administrador');

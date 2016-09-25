@@ -10,13 +10,18 @@
         dataService.getPyme($rootScope.sessionData.PymeID).then(function(pyme){
           vm.business = pyme.data;
 
-          console.log(vm.business);
+          vm.socialLinks = [];
+          for(var x = 0, max = vm.business.social.length; x < max; x++) {
+              var obj = {};
+              obj.type = vm.business.social[x] === 'Website' ? 'globe' : vm.business.social[x].type.toLowerCase();
+              obj.name = vm.business.social[x].type;
+              obj.url = vm.business.social[x].Link;
+              vm.socialLinks.push(obj);
+          }
         });
 
         dataService.getUser($rootScope.sessionData.UsuarioId).then(function(user){
             vm.user = user.data;
-
-            console.log(vm.user);
         });
 
         vm.title = 'Panel de Métricas';
@@ -47,10 +52,6 @@
 
             return today;
 
-        };
-
-        vm.send = function(data) {
-            console.log(data);
         };
     };
 })();
