@@ -2,7 +2,7 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .config(['$locationProvider', '$routeProvider', '$httpProvider', function($locationProvider, $routeProvider, $httpProvider) {
+        .config(['FacebookProvider', '$locationProvider', '$routeProvider', '$httpProvider', function(FacebookProvider, $locationProvider, $routeProvider, $httpProvider) {
             $routeProvider
                 .when('/inicio', {
                     templateUrl: 'views/login.html',
@@ -46,6 +46,8 @@
                     return $injector.get('AuthInterceptor');
                 }
             ]);
+
+            FacebookProvider.init('1203377526408832');
         }])
 
     .factory('AuthInterceptor', ['$injector', function($injector) {

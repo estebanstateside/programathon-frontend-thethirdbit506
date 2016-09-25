@@ -2,15 +2,28 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('AdminController', ['Notification', 'config', 'dataService', 'sessionService', '$location', '$rootScope','$routeParams', AdminController]);
+        .controller('AdminController', ['Facebook', 'Notification', 'config', 'dataService', 'sessionService', '$location', '$rootScope','$routeParams', AdminController]);
 
-    function AdminController(Notification, config, dataService, sessionService, $location, $rootScope, $routeParams) {
+    function AdminController(Facebook, Notification, config, dataService, sessionService, $location, $rootScope, $routeParams) {
         var vm = this;
 
         vm.shared = false;
         vm.loading = false;
         vm.responsesAvailable = false;
         vm.isLoadingResponses = false;
+
+        Facebook.login(function(response) {
+          console.log(response);
+        });
+
+        Facebook.getLoginStatus(function(response) {
+          console.log(response);
+          if(response.status === 'connected') {
+            vm.loggedIn = true;
+          } else {
+            vm.loggedIn = false;
+          }
+        });
 
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
