@@ -3,13 +3,15 @@
 
     angular
         .module('pymeFbApp')
-        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', RegisterController]);
+        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', 'constants', 'sessionService', RegisterController]);
 
-    function RegisterController(dataService, gendersService, sectorsService, Notification, $location) {
+    function RegisterController(dataService, gendersService, sectorsService, Notification, $location, constants, sessionService) {
         var vm = this;
 
         vm.title = "Registrar";
         vm.submit = "Registrarse";
+        
+        vm.isPosting = false;
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
@@ -57,12 +59,38 @@
             };
         }
 
-        vm.send = function (model) {
+        vm.send = function(model) {
             var form = Object.assign({}, model);
+
             form.logo = vm.isFile;
-            dataService.register(form).then(function(data){
-                console.log(data);
-            });
+
+            vm.isPosting = true;
+
+            dataService.register(form)
+                .then(function(data) {
+                    if (data.statusText === 'Created') {
+                        vm.formData.PymeID = data.data.id;
+                        vm.formData.usuarioID = data.data.id_user;
+                        vm.formData.Usuario = vm.formData.nombre_usuario;
+                        vm.formData.PaisID = vm.formData.pais;
+                    
+                        if (vm.formData.PymeID && vm.formData.usuarioID) {
+                            sessionService.signIn(vm.formData, function() {
+                                $location.path('/administrador');
+                            });
+                        } else {
+                            Notification.error(constants.messages.error);
+                        }
+                    } else {
+                        Notification.error(constants.messages.error);
+                    }
+                })
+                .catch(function() {
+                    Notification.error(constants.messages.error);
+                })
+                .finally(function() {
+                    vm.isPosting = false;
+                });
         };
     }
 })();

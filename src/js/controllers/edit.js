@@ -11,7 +11,8 @@
 
         vm.title = "Editar información";
         vm.submit = "Actualizar información";
-
+        vm.loadedFromApi = false;
+        
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
         });
@@ -29,6 +30,8 @@
               vm.formData[prop] = pyme.data[prop]
             }
             console.log(vm.formData);
+
+            vm.loadedFromApi = true;
         });
 
         dataService.getUser($rootScope.sessionData.UsuarioId).then(function(user){
