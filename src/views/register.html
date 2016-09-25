@@ -5,6 +5,10 @@
             <h2 class="text-center">{{perfil.title}}</h2>
             <div class="panel-body">
                 <form name="registerForm">
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos generales de la empresa</h4>
+                  </div>
+
                   <div class="form-group">
                     <label>Nombre Comercio</label>
                     <input class="form-control" name="nombre_comercio" ng-maxlength="100" ng-model="perfil.formData.nombre_comercio" required>
@@ -116,7 +120,7 @@
 
                   <div class="form-group">
                     <label>Adjuntar logo</label>
-                    <div class="file-upload" flow-init>
+                    <div class="file-upload form__image" flow-init>
                       <img flow-img="$flow.files[0]"/>
                       <div>
                         <input type="file" name="logo" flow-btn ngf-select="perfil.file(perfil.formData.logo)" ng-model="perfil.formData.logo" required>
@@ -125,6 +129,10 @@
                     <div ng-messages="registerForm.logo.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                     </div>
+                  </div>
+
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos de redes sociales y canales de la empresa</h4>
                   </div>
 
                   <div class="form-group">
@@ -176,6 +184,10 @@
                     </div>
                   </div>
 
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos del usuario</h4>
+                  </div>
+
                   <div class="form-group">
                     <label>Nombre completo</label>
                     <input class="form-control" ng-maxlength="50" name="nombre" ng-model="perfil.formData.nombre" required>
@@ -209,9 +221,8 @@
                     <div ng-messages="registerForm.ContrasenaCheck.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                       <div class="text-danger" ng-message="pattern">Contraseña invalida.</div>
+                      <div class="text-danger" ng-message="match">Las contraseñas deben coincidir.</div>
                     </div>
-
-                    <div class="text-danger" ng-if="ContrasenaCheck && perfil.formData.contrasena != ContrasenaCheck">Las contraseñas deben coincidir.</div>
                   </div>
 
                   <div class="form-group">
