@@ -28,6 +28,10 @@
                 vm.formData[prop] = pyme.data[prop]
             }
 
+            vm.formData.es_activa = (vm.formData.es_activa === '1') ? true : false;
+            
+            vm.formData.es_negocio_familiar = (vm.formData.es_negocio_familiar === '1') ? true : false;
+
             for (var prop in vm.formData.social) {
                 if (vm.formData.social[prop].type === 'Facebook') {
                     vm.formData.link_facebook = vm.formData.social[prop].Link;
