@@ -9,24 +9,25 @@
 
         function isValid() {
             var Usuario = $cookies.get('Usuario') || '';
+            var UsuarioId = $cookies.get('UsuarioId') || '';
             var PaisID = $cookies.get('PaisID') || '';
             var Fecha = $cookies.get('Fecha') || '';
             var PymeID = $cookies.get('PymeID') || '';
-            return (Usuario !== '' && PaisID !== '' && Fecha !== '' && PymeID !== '');
+            return (Usuario !== '' && UsuarioId !== '' && PaisID !== '' && Fecha !== '' && PymeID !== '');
         }
 
         function loadToRoot() {
-          var Usuario = $cookies.get('Usuario');
-          var UsuarioId = $cookies.get('UsuarioId');
-          var PaisID = $cookies.get('PaisID');
-          var Fecha = $cookies.get('Fecha');
-          var PymeID = $cookies.get('PymeID');
-          $rootScope.sessionData = {
-              Usuario: Usuario,
-              PaisID: PaisID,
-              PymeID: PymeID,
-              UsuarioId: UsuarioId
-          };
+            var Usuario = $cookies.get('Usuario');
+            var UsuarioId = $cookies.get('UsuarioId');
+            var PaisID = $cookies.get('PaisID');
+            var Fecha = $cookies.get('Fecha');
+            var PymeID = $cookies.get('PymeID');
+            $rootScope.sessionData = {
+                Usuario: Usuario,
+                PaisID: PaisID,
+                PymeID: PymeID,
+                UsuarioId: UsuarioId
+            };
         }
 
         function signIn(formData, callback) {
@@ -38,6 +39,7 @@
 
             $rootScope.sessionData = {
                 Usuario: formData.Usuario,
+                UsuarioId: formData.UsuarioId,
                 PaisID: formData.PaisID,
                 PymeID: formData.PymeID
             };
@@ -47,6 +49,7 @@
 
         function signOut(callback) {
             $cookies.remove('Usuario');
+            $cookies.remove('UsuarioId');
             $cookies.remove('PaisID');
             $cookies.remove('Fecha');
             $cookies.remove('PymeID');
