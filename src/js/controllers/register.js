@@ -75,7 +75,7 @@
                         vm.formData.Usuario = vm.formData.nombre_usuario;
                         vm.formData.PaisID = vm.formData.pais;
 
-                        if (vm.formData.PymeID && vm.formData.usuarioID) {
+                        if (vm.formData.PymeID && vm.formData.UsuarioId) {
                             sessionService.signIn(vm.formData, function() {
                                 $location.path('/administrador');
                             });
