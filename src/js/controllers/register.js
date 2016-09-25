@@ -9,6 +9,8 @@
         var vm = this;
         vm.formData = {};
 
+        vm.title = "Registrar";
+
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
         });

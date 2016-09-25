@@ -16,6 +16,12 @@
                 controllerAs: 'register'
             })
 
+            .when('/editar', {
+                templateUrl: 'views/register.html',
+                controller: 'EditController',
+                controllerAs: 'edit'
+            })
+
             .when('/administrador', {
                     templateUrl: 'views/dashboard.html',
                     controller: 'AdminController',
