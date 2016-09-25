@@ -15,6 +15,8 @@
 
         vm.time = getCurrentDate();
 
+        vm.user = $rootScope.sessionData.Usuario;
+
         vm.signOut = function() {
             sessionService.signOut(function() {
                 $location.path('/inicio');

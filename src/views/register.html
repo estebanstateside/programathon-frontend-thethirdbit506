@@ -112,9 +112,9 @@
 
                   <div class="form-group">
                     <label>Negocio familiar?</label>
-                    <input ng-model="perfil.formData.es_negocio_familiar" name="es_negocio_familiar" type="checkbox" required>
+                    <input ng-model="perfil.formData.es_negocio_familiar" name="es_negocio_familiar" type="checkbox">
                     <div ng-messages="registerForm.es_negocio_familiar.$error" role="alert">
-                      <div class="text-danger" ng-message="required">Campo requerido.</div>
+                      <!-- <div class="text-danger" ng-message="required">Campo requerido.</div> -->
                     </div>
                   </div>
 
@@ -184,10 +184,6 @@
                     </div>
                   </div>
 
-                  <div class="page-header">
-                    <h4 class="text-muted lead">Datos del usuario</h4>
-                  </div>
-
                   <div class="form-group">
                     <label>Repetir correo electrónico</label>
                     <input class="form-control" match="perfil.formData.correo_contacto" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
@@ -198,6 +194,11 @@
                       <div class="text-danger" ng-message="match">Los correos deben coincidir.</div>
                     </div>
                   </div>
+
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos del usuario</h4>
+                  </div>
+
 
                   <div class="form-group">
                     <label>Nombre completo</label>
@@ -236,7 +237,7 @@
                     </div>
                   </div>
 
-                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
+                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">{{perfil.submit}}</button>
                   <button class="btn btn-lg btn-danger btn-block" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
                 </form>
             </div>

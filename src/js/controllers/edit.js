@@ -10,6 +10,7 @@
         vm.formData = {};
 
         vm.title = "Editar información";
+        vm.submit = "Actualizar información";
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
