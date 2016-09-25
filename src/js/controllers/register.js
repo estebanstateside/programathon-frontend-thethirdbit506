@@ -15,6 +15,7 @@
         vm.isRegister = true;
         vm.formData.es_negocio_familiar = false;
         vm.formData.es_activa = true;
+        vm.isFileInvalid = true;
 
         vm.isPosting = false;
 
@@ -65,6 +66,8 @@
                     vm.isFile = dataUrl;
                 }
             } else {
+                vm.formData.logo = '';
+                vm.isFile = false;
                 Notification.error(constants.messages.errorFile);
             }
         }
