@@ -7,11 +7,14 @@
 
     function RegisterController(dataService, gendersService, sectorsService, Notification, $location, constants, sessionService) {
         var vm = this;
-
+        
+        vm.formData = {};
         vm.title = "Registrar";
         vm.submit = "Registrarse";
         vm.userDisabled = false;
         vm.isRegister = true;
+        vm.formData.es_negocio_familiar = false;
+        vm.formData.es_activa = true;
 
         vm.isPosting = false;
 
