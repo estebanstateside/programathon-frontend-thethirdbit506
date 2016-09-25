@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .service('sessionService', ['$http', '$cookies', 'constants' sessionService]);
+        .service('sessionService', ['$http', '$cookies', 'constants', '$q' sessionService]);
 
-    function sessionService($http, $cookies, 'constants') {
+    function sessionService($http, $cookies, 'constants', '$q') {
 
         function signIn(formData, callback) {
             $cookies.put('Usuario', formData.Usuario);
@@ -26,7 +26,8 @@
         var getModelAsFormData = function (data) {
             var dataAsFormData = new FormData();
             angular.forEach(data, function (value, key) {
-                if (key == "Logo") {
+                if (key == "logo") {
+                    console.log('Entered');
                     for (var i = 0; i < value.length; i++) {
                         dataAsFormData.append(value[i].name, value[i]);
                     }
@@ -34,6 +35,7 @@
                     dataAsFormData.append(key, value);
                 }
             });
+
             return dataAsFormData;
         };
 
