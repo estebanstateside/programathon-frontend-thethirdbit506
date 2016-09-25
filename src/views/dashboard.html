@@ -44,7 +44,7 @@
             </a>
         </div>
     </div>
-    <div class="row" ng-init="admin.getResponses(admin.PymeID, formDate.fecha_inicial, formData.fecha_final)">
+    <div class="row">
         <div class="page-header col-lg-12">
             <h2>Resultados encuesta</h2>
             <span class="hidden-xs dashboard__edit"><a href="#/{{admin.PymeID}}/encuesta"><i class="fa fa-pencil fa-question-circle-o"></i> Ver encuesta</a></span>
@@ -53,7 +53,7 @@
 
           <div class="form-group col-lg-4 col-xs-12">
             <label>Ingrese la fecha inicial</label>
-            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_inicial" placeholder="Dia/mes/año" ng-model="formDate.fecha_inicial" required ng-init="formDate.fecha_inicial = admin.getCurrentDate()">
+            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_inicial" placeholder="Dia/mes/año" ng-model="admin.formData.fecha_inicial" required ng-init="admin.formData.fecha_inicial = admin.getCurrentDate()">
             <div ng-messages="searchData.fecha_inicial.$error">
               <div class="text-danger" ng-if="searchData.fecha_inicial.$touched" ng-message="pattern">Fecha no válida. Ejemplo: 12/03/2016</div>
             </div>
@@ -61,13 +61,13 @@
 
           <div class="form-group col-lg-4 col-xs-12">
             <label>Ingrese la fecha final</label>
-            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_final" placeholder="Dia/mes/año" ng-model="formDate.fecha_final" required ng-init="formDate.fecha_final = admin.getCurrentDate()">
+            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_final" placeholder="Dia/mes/año" ng-model="admin.formData.fecha_final" required ng-init="admin.formData.fecha_final = admin.getCurrentDate()">
             <div ng-messages="searchData.fecha_final.$error">
               <div class="text-danger" ng-if="searchData.fecha_final.$touched" ng-message="pattern">Fecha no válida. Ejemplo: 12/03/2016</div>
             </div>
           </div>
           <div class="form-group col-lg-4 col-xs-12">
-            <button type="button" ng-disabled="!searchData.$valid" ng-click="admin.getResponses(admin.PymeID, formDate.fecha_inicial, formData.fecha_final)" class="btn btn-primary"><i class="fa fa-search fa-fw"></i> Consultar</button>
+            <button type="button" ng-disabled="!searchData.$valid" ng-click="admin.getResponses()" class="btn btn-primary"><i class="fa fa-search fa-fw"></i> Consultar</button>
           </div>
         </form>
     </div>

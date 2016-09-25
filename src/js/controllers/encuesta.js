@@ -2,15 +2,28 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('EncuestaController', ['Notification', 'constants', '$routeParams', 'gendersService', 'dataService', '$rootScope', EncuestaController]);
+        .controller('EncuestaController', ['Facebook','Notification', 'constants', '$routeParams', 'gendersService', 'dataService', '$rootScope', EncuestaController]);
 
-    function EncuestaController(Notification, constants, $routeParams, gendersService, dataService, $rootScope) {
+    function EncuestaController(Facebook, Notification, constants, $routeParams, gendersService, dataService, $rootScope) {
         var vm = this;
         var PymeID = $routeParams.id;
 
         vm.puntaje = ['1 - Malo', '2 - Regular', '3 - Normal', '4 - Bueno(a)', '5 - Excelente'];
         vm.success = false;
         vm.isPosting = false;
+
+        Facebook.login(function(response) {
+          console.log(response);
+        });
+
+        // Facebook.getLoginStatus(function(response) {
+        //   console.log(response);
+        //   if(response.status === 'connected') {
+        //     vm.loggedIn = true;
+        //   } else {
+        //     vm.loggedIn = false;
+        //   }
+        // });
 
         gendersService.getGenders().then(function(data) {
             vm.genders = data.data;

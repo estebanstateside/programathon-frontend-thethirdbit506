@@ -12,19 +12,6 @@
         vm.responsesAvailable = false;
         vm.isLoadingResponses = false;
 
-        /*Facebook.login(function(response) {
-          console.log(response);
-        });
-
-        Facebook.getLoginStatus(function(response) {
-          console.log(response);
-          if(response.status === 'connected') {
-            vm.loggedIn = true;
-          } else {
-            vm.loggedIn = false;
-          }
-        });*/
-
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
 
@@ -42,11 +29,15 @@
           }
         });
 
-        vm.getResponses = function(id, start, end) {
+        vm.getResponses = function() {
             vm.isLoadingResponses = true;
             $('.morris-charts').empty();
 
-            dataService.getResponses(id, start, end).then(function(data){
+            function parseDate(date) {
+                return date.replace(/\//g, '-');
+            }
+
+            dataService.getResponses(vm.PymeID, parseDate(vm.formData.fecha_inicial), parseDate(vm.formData.fecha_final)).then(function(data){
                 vm.isLoadingResponses = false;
                 console.log(data);
                 vm.females = 0;
