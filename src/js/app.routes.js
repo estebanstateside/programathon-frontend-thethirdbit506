@@ -27,17 +27,17 @@
                     controller: 'AdminController',
                     controllerAs: 'admin'
                 })
-                
+
                 .when('/encuesta', {
                     templateUrl: 'views/encuesta.html',
                     controller: 'EncuestaController',
                     controllerAs: 'encuesta'
                 })
-                
+
                 .otherwise({
                     redirectTo: '/inicio'
                 });
-            
+
             $locationProvider.html5Mode(false);
 
             $httpProvider.interceptors.push([
@@ -50,8 +50,6 @@
         .factory('AuthInterceptor', ['$rootScope', '$q', function($rootScope, $q) {
             return {
                 request: function(response) {
-                    console.log('before sending');
-                    console.log(response);
                     return response;
                 }
             };
