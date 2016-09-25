@@ -23,20 +23,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-md-2">
             <a href="#" class="thumbnail">
               <img ng-src="{{admin.business.logo}}" height="100" width="100">
             </a>
-
-            <div class="btn-group dashboard__social" role="group">
-              <button ng-repeat="item in admin.socialLinks" type="button" class="btn btn-default"><a href="{{item.url}}" target="_blank"><i class="fa fa-{{item.type}} fa-fw"></i>  {{ item.name }} </a></button>
-            </div>
         </div>
-        <div class="col-xs-12 col-md-6 dashboard__data">
+        <div class="col-xs-12 col-md-8 dashboard__data">
             <h4>
                 <i class="fa fa-user fa-fw"></i> Usuario: <span>{{admin.user.nombre}}</span>
             </h4>
-
+            <div class="btn-group dashboard__social" role="group">
+                <button ng-repeat="item in admin.socialLinks" type="button" class="btn btn-default btn__socialLinks"><a href="{{item.url}}" target="_blank"><i class="fa fa-{{item.type}} fa-fw"></i>  {{ item.name }} </a></button>
+            </div>
         </div>
         <div class="col-xs-12 col-md-2 dashboard__buttons">
             <a class="btn btn-success" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=1203377526408832&redirect_uri=http://thethirdbitapp.herokuapp.com/&scope=manage_pages,publish_pages"><i class="fa fa-facebook fa-fw"></i>Instalar App Facebook</a>
