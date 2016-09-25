@@ -3,68 +3,100 @@
         <div class="login-panel panel panel-default">
           <h2 class="text-center">Encuesta</h2>
           <div class="panel-body">
-              <form name="encuestaForm">
+              <form name="encuestaForm" ng-hide="encuesta.success">
+              <div class="form-group">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <label>Indique su género</label>
+                          <select class="form-control" name="genero_id" ng-model="encuesta.formData.genero_id" required>
+                              <option value="">Seleccione su respuesta</option>
+                              <option ng-repeat="genero in encuesta.genders" value="{{genero.Id}}">{{genero.Nombre}}</option>
+                          </select>
+                          <div ng-messages="registerForm.genero_id.$error" role="alert">
+                              <div class="text-danger" ng-message="required">Campo requerido.</div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <label>Indique su edad</label>
+                          <select class="form-control" name="rango_edad" ng-model="encuesta.formData.rango_edad" required>
+                              <option value="">Seleccione su respuesta</option>
+                              <option ng-repeat="edad in encuesta.ages" value="{{edad.Id}}">{{edad.Nombre}}</option>
+                          </select>
+                          <div ng-messages="registerForm.rango_edad.$error" role="alert">
+                              <div class="text-danger" ng-message="required">Campo requerido.</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
                 <div class="page-header">
                   <h4 class="text-muted lead">1. ¿Calidad del producto o servicio?</h4>
                 </div>
 
-                <div class="form-group encuesta__radio_button">
-                  <label ng-repeat="value in encuesta.puntaje">
-                    <input type="radio" name="01_{{value}}" ng-model="encuesta.formData.respuesta_01" value="{{value}}">
-                    {{value}}
-                  </label>
+                <div class="form-group">
+                      <select class="form-control" name="respuesta_01" ng-model="encuesta.formData.respuesta_01" required>
+                          <option value="">Seleccione su respuesta</option>
+                          <option ng-repeat="value in encuesta.puntaje" value="{{value}}">{{value}}</option>
+                      </select>
                 </div>
 
                 <div class="page-header">
                   <h4 class="text-muted lead">2. ¿Tiempo de espera en la atención?</h4>
                 </div>
-                <div class="form-group encuesta__radio_button">
-                  <label ng-repeat="value in encuesta.puntaje">
-                    <input type="radio" name="02_{{value}}" ng-model="encuesta.formData.respuesta_02" value="{{value}}">
-                    {{value}}
-                  </label>
+                <div class="form-group">
+                    <select class="form-control" name="respuesta_02" ng-model="encuesta.formData.respuesta_02" required>
+                        <option value="">Seleccione su respuesta</option>
+                        <option ng-repeat="value in encuesta.puntaje" value="{{value}}">{{value}}</option>
+                    </select>
                 </div>
 
                 <div class="page-header">
                   <h4 class="text-muted lead">3. ¿Imagen de las instalaciones?</h4>
                 </div>
-                <div class="form-group encuesta__radio_button">
-                  <label ng-repeat="value in encuesta.puntaje">
-                    <input type="radio" name="03_{{value}}" ng-model="encuesta.formData.respuesta_03" value="{{value}}">
-                    {{value}}
-                  </label>
+                <div class="form-group">
+                    <select class="form-control" name="respuesta_03" ng-model="encuesta.formData.respuesta_03" required>
+                        <option value="">Seleccione su respuesta</option>
+                        <option ng-repeat="value in encuesta.puntaje" value="{{value}}">{{value}}</option>
+                    </select>
                 </div>
 
                 <div class="page-header">
                   <h4 class="text-muted lead">4. ¿Disponibilidad de producto o servicio solicitado?</h4>
                 </div>
-                <div class="form-group encuesta__radio_button">
-                  <label ng-repeat="value in encuesta.puntaje">
-                    <input type="radio" name="04_{{value}}" ng-model="encuesta.formData.respuesta_04" value="{{value}}">
-                    {{value}}
-                  </label>
+                <div class="form-group">
+                    <select class="form-control" name="respuesta_04" ng-model="encuesta.formData.respuesta_04" required>
+                        <option value="">Seleccione su respuesta</option>
+                        <option ng-repeat="value in encuesta.puntaje" value="{{value}}">{{value}}</option>
+                    </select>
                 </div>
 
                 <div class="page-header">
                   <h4 class="text-muted lead">5. ¿Atención del personal?</h4>
                 </div>
-                <div class="form-group encuesta__radio_button">
-                  <label ng-repeat="value in encuesta.puntaje">
-                    <input type="radio" name="05_{{value}}" ng-model="encuesta.formData.respuesta_05" value="{{value}}">
-                    {{value}}
-                  </label>
+                <div class="form-group">
+                    <select class="form-control" name="respuesta_05" ng-model="encuesta.formData.respuesta_05" required>
+                        <option value="">Seleccione su respuesta</option>
+                        <option ng-repeat="value in encuesta.puntaje" value="{{value}}">{{value}}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                   <div class="btn-group btn-group-justified">
                     <div class="btn-group" role="group">
                       <button class="btn btn-lg btn-default" ng-click="encuesta.send(encuesta.formData)" type="button">
+                          <i class="fa fa-spinner fa-pulse fa-fw" ng-show="encuesta.isPosting"></i> 
                         Enviar
                       </button>
                     </div>
                   </div>
                 </div>
               </form>
+              <div ng-show="encuesta.success" class="text-center">
+                  <h3>¡Gracias!</h3>
+                  <p>
+                      El formulario fue enviado exitosamente.
+                  </p>
+              </div>
         </div>
     </div>
 </div>
