@@ -358,6 +358,7 @@
                     }],
                     resize: true
                 });
+                $(window).resize();
             });
         };
 
