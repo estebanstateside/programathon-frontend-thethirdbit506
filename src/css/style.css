@@ -22,7 +22,7 @@
     color: #80c780 !important; }
 
 .bg__image__login {
-  background-image: url("img/blurred-background.jpg");
+  background-image: url("../img/blurred-background.jpg");
   background-size: cover; }
 
 .login__container {

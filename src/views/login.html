@@ -7,25 +7,45 @@
                     <div class="panel-body">
                         <form role="form" name="loginForm" novalidate>
                             <fieldset>
+
                                 <div class="form-group">
-                                    <label for="NombreComercio">Nombre Comercial</label>
-                                    <input class="form-control" placeholder="Nombre del Comercio" ng-model="login.formData.NombreComercio" name="NombreComercio" type="text" autofocus required>
+                                    <label for="nombre_comercio">Nombre Comercial</label>
+                                    <input class="form-control" placeholder="Nombre del Comercio" ng-model="login.formData.NombreComercio" name="nombre_comercio" type="text" autofocus required ng-maxlength="100">
+                                    <div ng-messages="loginForm.nombre_comercio.$error">
+                                        <div class="text-danger" ng-message="required">Campo requerido.</div>
+                                        <div class="text-danger" ng-message="maxlength">Este campo solo permite 100 caracteres.</div>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="UsuarioID">Nombre de Usuario</label>
-                                    <input class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.Usuario" name="Usuario" type="text" autofocus>
+                                    <label for="nombre_usuario">Nombre de Usuario</label>
+                                    <input class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.Usuario" ng-maxlength="50" name="nombre_usuario" type="text" autofocus>
+                                    <div ng-messages="loginForm.nombre_usuario.$error" role="alert">
+                                        <div class="text-danger" ng-message="required">Campo requerido.</div>
+                                        <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="pais">País <i class="fa fa-spinner fa-pulse fa-fw" ng-show="login.isFetchingCountries"></i></label>
                                     <select class="form-control" name="pais" ng-model="login.formData.PaisID" ng-disabled="login.isFetchingCountries" required>
-                                    <option value="">Seleccione su País</option>
-                                    <option ng-repeat="country in login.countries" value="{{country.id}}">{{country.nombre}}</option>
-                                </select>
+                                        <option value="">Seleccione su País</option>
+                                        <option ng-repeat="country in login.countries" value="{{country.id}}">{{country.nombre}}</option>
+                                    </select>
+                                    <div ng-messages="loginForm.pais.$error" role="alert">
+                                        <div class="text-danger" ng-message="required">Campo requerido.</div>
+                                    </div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="password">Contraseña</label>
-                                    <input class="form-control" placeholder="Contraseña" ng-model="login.formData.Clave" name="password" type="password" required="">
+                                    <input class="form-control" placeholder="Contraseña" ng-model="login.formData.Clave" name="password" type="password" required ng-pattern="/^([a-zA-Z0-9]){8,10}$/">
+                                    <div ng-messages="loginForm.password.$error" role="alert">
+                                        <div class="text-danger" ng-message="required">Campo requerido.</div>
+                                        <div class="text-danger" ng-message="pattern">Contraseña no válida.</div>
+                                    </div>
                                 </div>
+                                
                                 <div class="form-group">
                                     <div class="btn-group btn-group-justified">
                                         <div class="btn-group" role="group">

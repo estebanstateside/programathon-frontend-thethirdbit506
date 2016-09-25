@@ -77,7 +77,6 @@
                     </select>
                     <div ng-messages="registerForm.pais.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" ng-message="maxlength">Este campo solo permite 100 caracteres.</div>
                     </div>
                   </div>
 
@@ -233,7 +232,7 @@
                     <input type="password" ng-pattern="/^([a-z0-9]){8,10}$/" class="form-control" name="contrasena" ng-model="perfil.formData.contrasena" required>
                     <div ng-messages="registerForm.contrasena.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" ng-message="pattern">Contraseña invalida.</div>
+                      <div class="text-danger" ng-message="pattern">Contraseña no válida.</div>
                     </div>
                   </div>
 
@@ -242,7 +241,7 @@
                     <input type="password" class="form-control" match="perfil.formData.contrasena" ng-pattern="/^([a-z0-9]){8,10}$/" name="ContrasenaCheck" ng-model="ContrasenaCheck" required>
                     <div ng-messages="registerForm.ContrasenaCheck.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" ng-message="pattern">Contraseña invalida.</div>
+                      <div class="text-danger" ng-message="pattern">Contraseña no válida.</div>
                       <div class="text-danger" ng-message="match">Las contraseñas deben coincidir.</div>
                     </div>
                   </div>
