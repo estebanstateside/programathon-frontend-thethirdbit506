@@ -51,9 +51,7 @@
             fileReader.onload = function (e) {
                 var dataUrl = e.target.result;
                 vm.isFile = dataUrl;
-                console.log(vm.isFile);
             };
-            console.log(vm.isFile);
         }
 
         vm.send = function (model) {
