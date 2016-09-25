@@ -7,6 +7,7 @@
             'flow',
             'ngMessages',
             'facebook',
-            'ngCookies'
+            'ngCookies',
+            'ngFileUpload'
         ]);
 })();

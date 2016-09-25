@@ -38,10 +38,36 @@
             callback();
         }
 
+        var getModelAsFormData = function (data) {
+            var dataAsFormData = new FormData();
+            angular.forEach(data, function (value, key) {
+                if (key == "logo") {
+                    console.log('Entered');
+                    for (var i = 0; i < value.length; i++) {
+                        dataAsFormData.append(value[i].name, value[i]);
+                    }
+                } else {
+                    dataAsFormData.append(key, value);
+                }
+            });
+
+            return dataAsFormData;
+        };
+
+        var register = function (data) {
+            var deferred = $q.defer();
+            return $http({
+                url: constants.api + '/pyme',
+                method: "POST",
+                data: (data)
+            });
+        };
+
         return {
             signIn: signIn,
             signOut: signOut,
-            isValid: isValid
+            isValid: isValid,
+            register: register
         }
     }
 

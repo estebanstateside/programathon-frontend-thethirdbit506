@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', RegisterController]);
+        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', 'sessionService', RegisterController]);
 
-    function RegisterController(dataService, gendersService, sectorsService, Notification) {
+    function RegisterController(dataService, gendersService, sectorsService, Notification, $location, sessionService) {
         var vm = this;
         vm.formData = {};
 
@@ -45,12 +45,28 @@
         }
 
         vm.file  = function (file) {
-            vm.isFile = file;
-            console.log(file);
+            var fileReader = new FileReader();
+
+            fileReader.readAsDataURL(file);
+            fileReader.onload = function (e) {
+                var dataUrl = e.target.result;
+                vm.isFile = dataUrl;
+                console.log(vm.isFile);
+            };
+            console.log(vm.isFile);
         }
 
-        vm.send = function (data) {
-            console.log(data);
+        vm.send = function (model) {
+            var form = Object.assign({}, model);
+            form.logo = vm.isFile;
+            form.fecha_creacion = '12/12/2012';
+            form.fecha_ultima_actualizacion = '12/12/2012';
+            form.es_facebook_app_instalado = 1;
+            form.es_activa = 1;
+            form.usuario_id = 22;
+            sessionService.register(form).then(function(data){
+                console.log(data);
+            });
         };
     }
 })();
