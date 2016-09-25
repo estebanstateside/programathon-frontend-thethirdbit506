@@ -247,7 +247,9 @@
                     </div>
                   </div>
 
-                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">{{perfil.submit}}</button>
+                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button" ng-disabled="!registerForm.$valid">
+                      {{perfil.submit}} <i class="fa fa-spinner fa-pulse fa-fw" ng-show="perfil.isPosting"></i>
+                  </button>
                   <button class="btn btn-lg btn-danger btn-block" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
                 </form>
             </div>
