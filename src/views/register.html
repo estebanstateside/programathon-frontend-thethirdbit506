@@ -177,9 +177,9 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Correo electrónico contacto</label>
-                    <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_contacto" ng-model="perfil.formData.correo_contacto" required>
-                    <div ng-messages="registerForm.correo_contacto.$error" role="alert">
+                    <label>Correo electrónico</label>
+                    <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico" required>
+                    <div ng-messages="registerForm.correo_electronico.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                       <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
                     </div>
@@ -187,7 +187,7 @@
 
                   <div class="form-group">
                     <label>Repetir correo electrónico</label>
-                    <input class="form-control" match="perfil.formData.correo_contacto" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
+                    <input class="form-control" match="perfil.formData.correo_electronico" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
                     <div ng-messages="registerForm.CorreoElectronicoCheck.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
@@ -216,6 +216,15 @@
                     <div ng-messages="registerForm.nombre_usuario.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Correo electrónico contacto</label>
+                    <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_contacto" ng-model="perfil.formData.correo_contacto" required>
+                    <div ng-messages="registerForm.correo_contacto.$error" role="alert">
+                      <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
+                      <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
                     </div>
                   </div>
 
