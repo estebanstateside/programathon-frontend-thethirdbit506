@@ -13,7 +13,7 @@
           console.log(response);
         });
 
-        Facebook.api('/me', function(response) {
+        Facebook.api('/me?'+vm.code, function(response) {
           console.log(response);
         });
 
