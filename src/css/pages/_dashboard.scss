@@ -17,4 +17,22 @@
             }
         }
     }
+
+    .dashboard__data {
+        span {
+            font-weight: 400;
+            color: $color-gray;
+        }
+    }
+
+    .dashboard__buttons {
+        padding-top: 10px;
+        button {
+            &:first-child {
+                margin-right: 0;
+            }
+            float: right;
+            margin-left: 15px;
+        }
+    }
 }
