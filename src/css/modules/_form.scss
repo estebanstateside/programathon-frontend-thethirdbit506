@@ -9,3 +9,17 @@
 .form__image img {
   max-width: 300px
 }
+
+.btn-group-justified {
+  .btn-default,
+  .btn-default[disabled]:hover {
+    background: rgba(49, 112, 143, 0.82);
+    color: #fff;
+    border: none;
+    opacity: 1;
+  }
+
+  .login__btn__cancel {
+    background: rgba(49, 113, 143, 0.54);
+  }
+}

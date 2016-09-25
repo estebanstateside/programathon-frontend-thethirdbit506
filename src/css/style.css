@@ -6,6 +6,16 @@
 .form__image img {
   max-width: 300px; }
 
+.btn-group-justified .btn-default,
+.btn-group-justified .btn-default[disabled]:hover {
+  background: rgba(49, 112, 143, 0.82);
+  color: #fff;
+  border: none;
+  opacity: 1; }
+
+.btn-group-justified .login__btn__cancel {
+  background: rgba(49, 113, 143, 0.54); }
+
 .nav li a {
   color: #fff;
   transition: all 0.25s ease-out; }
@@ -28,14 +38,12 @@
 .login__container {
   background-color: rgba(231, 234, 239, 0.7);
   border-color: transparent; }
-  .login__container .btn-default,
-  .login__container .btn-default[disabled]:hover {
-    background: rgba(49, 112, 143, 0.82);
-    color: #fff;
-    border: none;
-    opacity: 1; }
-  .login__container .login__btn__cancel {
-    background: rgba(49, 113, 143, 0.54); }
+
+.bg__register {
+  background-image: url("../img/blurred-background2.jpg");
+  background-size: cover; }
+  .bg__register .panel-default {
+    border-color: transparent; }
 
 .dashboard .dashboard__title {
   color: #5cb85c;
