@@ -7,7 +7,8 @@
             api: 'http://thethirdbit.space/index.php/rest',
             messages: {
                 error: '¡Hubo un error, trate más tarde!',
-                required: '¡Faltan algunos campos requeridos!'
+                required: '¡Faltan algunos campos requeridos!',
+                encuesta: '¡Todas las preguntas son requeridas!'
             }
         });
 })();

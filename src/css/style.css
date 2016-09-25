@@ -39,6 +39,9 @@
   background-color: rgba(231, 234, 239, 0.7);
   border-color: transparent; }
 
+.encuesta__radio_button label {
+  padding-right: 25px; }
+
 .bg__register {
   background-image: url("../img/blurred-background2.jpg");
   background-size: cover; }

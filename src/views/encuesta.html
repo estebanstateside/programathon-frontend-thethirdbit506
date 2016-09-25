@@ -3,64 +3,67 @@
         <div class="login-panel panel panel-default">
           <h2 class="text-center">Encuesta</h2>
           <div class="panel-body">
-              <form name="registerForm">
+              <form name="encuestaForm">
                 <div class="page-header">
-                  <h4 class="text-muted lead">1. Pregunta uno?</h4>
+                  <h4 class="text-muted lead">1. ¿Calidad del producto o servicio?</h4>
                 </div>
 
-                <div class="form-group">
-                  <input class="form-control" type="number" name="respuesta_01" ng-maxlength="100" ng-model="encuesta.formData.respuesta_01" required>
-                  <div ng-messages="registerForm.respuesta_01.$error">
-                    <div class="text-danger" ng-message="required">Campo requerido.</div>
-                    <div class="text-danger" ng-message="maxlength">Este campo solo permite 100 caracteres.</div>
-                  </div>
-                </div>
-
-                <div class="page-header">
-                  <h4 class="text-muted lead">2. Pregunta dos?</h4>
-                </div>
-                <div class="form-group">
-                  <input class="form-control" type="number" name="respuesta_02" ng-maxlength="11" ng-model="encuesta.formData.respuesta_02" required>
-                  <div ng-messages="registerForm.respuesta_02.$error">
-                    <div class="text-danger" ng-message="required">Campo requerido.</div>
-                    <div class="text-danger" ng-message="maxlength">Este campo solo permite 11 caracteres.</div>
-                  </div>
+                <div class="form-group encuesta__radio_button">
+                  <label ng-repeat="value in encuesta.puntaje">
+                    <input type="radio" name="01_{{value}}" ng-model="encuesta.formData.respuesta_01" value="{{value}}">
+                    {{value}}
+                  </label>
                 </div>
 
                 <div class="page-header">
-                  <h4 class="text-muted lead">3. Pregunta tres?</h4>
+                  <h4 class="text-muted lead">2. ¿Tiempo de espera en la atención?</h4>
                 </div>
-                <div class="form-group">
-                  <input class="form-control" type="number" name="respuesta_03" ng-maxlength="11" ng-model="encuesta.formData.respuesta_03" required>
-                  <div ng-messages="registerForm.respuesta_03.$error" role="alert">
-                    <div class="text-danger" class="text-danger" ng-message="required">Campo requerido.</div>
-                    <div class="text-danger" class="text-danger" ng-message="maxlength">Este campo solo permite 11 caracteres.</div>
-                  </div>
+                <div class="form-group encuesta__radio_button">
+                  <label ng-repeat="value in encuesta.puntaje">
+                    <input type="radio" name="02_{{value}}" ng-model="encuesta.formData.respuesta_02" value="{{value}}">
+                    {{value}}
+                  </label>
                 </div>
 
                 <div class="page-header">
-                  <h4 class="text-muted lead">4. Pregunta cuatro?</h4>
+                  <h4 class="text-muted lead">3. ¿Imagen de las instalaciones?</h4>
                 </div>
+                <div class="form-group encuesta__radio_button">
+                  <label ng-repeat="value in encuesta.puntaje">
+                    <input type="radio" name="03_{{value}}" ng-model="encuesta.formData.respuesta_03" value="{{value}}">
+                    {{value}}
+                  </label>
+                </div>
+
+                <div class="page-header">
+                  <h4 class="text-muted lead">4. ¿Disponibilidad de producto o servicio solicitado?</h4>
+                </div>
+                <div class="form-group encuesta__radio_button">
+                  <label ng-repeat="value in encuesta.puntaje">
+                    <input type="radio" name="04_{{value}}" ng-model="encuesta.formData.respuesta_04" value="{{value}}">
+                    {{value}}
+                  </label>
+                </div>
+
+                <div class="page-header">
+                  <h4 class="text-muted lead">5. ¿Atención del personal?</h4>
+                </div>
+                <div class="form-group encuesta__radio_button">
+                  <label ng-repeat="value in encuesta.puntaje">
+                    <input type="radio" name="05_{{value}}" ng-model="encuesta.formData.respuesta_05" value="{{value}}">
+                    {{value}}
+                  </label>
+                </div>
+
                 <div class="form-group">
-                    <input class="form-control" type="number" name="respuesta_04" ng-maxlength="11" ng-model="encuesta.formData.respuesta_04" required>
-                    <div ng-messages="registerForm.respuesta_04.$error" role="alert">
-                      <div class="text-danger" class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" class="text-danger" ng-message="maxlength">Este campo solo permite 11 caracteres.</div>
+                  <div class="btn-group btn-group-justified">
+                    <div class="btn-group" role="group">
+                      <button class="btn btn-lg btn-default" ng-click="encuesta.send(encuesta.formData)" type="button">
+                        Enviar
+                      </button>
                     </div>
+                  </div>
                 </div>
-
-                <div class="page-header">
-                  <h4 class="text-muted lead">5. Pregunta cinco?</h4>
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="number" name="respuesta_05" ng-maxlength="11" ng-model="encuesta.formData.respuesta_05" required>
-                    <div ng-messages="registerForm.respuesta_05.$error" role="alert">
-                      <div class="text-danger" class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" class="text-danger" ng-message="maxlength">Este campo solo permite 11 caracteres.</div>
-                    </div>
-                </div>
-
-                <button class="btn btn-lg btn-success btn-block" ng-click="encuesta.send(encuesta.formData)" type="button">Enviar</button>
               </form>
         </div>
     </div>
