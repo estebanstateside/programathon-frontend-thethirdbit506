@@ -10,33 +10,33 @@
                     controllerAs: 'login'
                 })
 
-            .when('/registro', {
-                templateUrl: 'views/register.html',
-                controller: 'RegisterController',
-                controllerAs: 'perfil'
-            })
+                .when('/registro', {
+                    templateUrl: 'views/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'perfil'
+                })
 
-            .when('/editar', {
-                templateUrl: 'views/register.html',
-                controller: 'EditController',
-                controllerAs: 'perfil'
-            })
+                .when('/editar', {
+                    templateUrl: 'views/register.html',
+                    controller: 'EditController',
+                    controllerAs: 'perfil'
+                })
 
-            .when('/administrador', {
-                templateUrl: 'views/dashboard.html',
-                controller: 'AdminController',
-                controllerAs: 'admin'
-            })
+                .when('/administrador', {
+                    templateUrl: 'views/dashboard.html',
+                    controller: 'AdminController',
+                    controllerAs: 'admin'
+                })
 
-            .when('/:id/encuesta', {
-                templateUrl: 'views/encuesta.html',
-                controller: 'EncuestaController',
-                controllerAs: 'encuesta'
-            })
+                .when('/:id/encuesta', {
+                    templateUrl: 'views/encuesta.html',
+                    controller: 'EncuestaController',
+                    controllerAs: 'encuesta'
+                })
 
-            .otherwise({
-                redirectTo: '/administrador'
-            });
+                .otherwise({
+                    redirectTo: '/administrador'
+                });
 
             $locationProvider.html5Mode(false);
 
@@ -58,7 +58,7 @@
                 var location = $injector.get('$location');
                 var sessionService = $injector.get('sessionService');
 
-                var isPrivate = !(location.path() === '/inicio' || location.path() === '/registro' || location.path() === '/encuesta');
+                var isPrivate = !(location.path() === '/inicio' || location.path() === '/registro' || location.path().includes('encuesta'));
 
                 if (isPrivate && !sessionService.isValid()) {
                     location.path('/inicio');

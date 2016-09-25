@@ -18,14 +18,14 @@
 
 .nav li a {
   color: #fff;
-  transition: all 0.25s ease-out; }
+  transition: all 0.15s ease-out; }
   .nav li a:hover {
     background-color: transparent !important;
     color: #5cb85c; }
 
 .navbar-brand {
   color: #5cb85c !important;
-  transition: all 0.25s ease-out;
+  transition: all 0.15s ease-out;
   font-size: 21px;
   font-weight: 500; }
   .navbar-brand:hover {
@@ -62,7 +62,7 @@
   top: 50%; }
   .dashboard .dashboard__edit a {
     color: #8a8a8a;
-    transition: all 0.25s ease-out; }
+    transition: all 0.15s ease-out; }
     .dashboard .dashboard__edit a:hover, .dashboard .dashboard__edit a:focus {
       color: #5cb85c;
       text-decoration: none; }
@@ -75,10 +75,15 @@
   margin-top: 15px; }
   .dashboard .dashboard__social a {
     color: #3e3e3e;
-    transition: all 0.25s ease-out; }
+    transition: all 0.15s ease-out; }
     .dashboard .dashboard__social a:hover {
       color: #5cb85c;
       text-decoration: none; }
+  .dashboard .dashboard__social .btn-default {
+    margin: 5px 10px; }
+    .dashboard .dashboard__social .btn-default:hover {
+      border-color: #5cb85c;
+      background-color: #fff; }
 
 .dashboard .dashboard__buttons {
   padding-top: 10px; }
