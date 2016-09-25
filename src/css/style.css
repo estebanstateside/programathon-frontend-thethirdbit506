@@ -34,15 +34,12 @@
 .bg__image__login {
   background-image: url("../img/blurred-background.jpg");
   background-size: cover;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0; }
+  height: 100vh; }
 
 .login__container {
   background-color: rgba(231, 234, 239, 0.7);
-  border-color: transparent; }
+  border-color: transparent;
+  margin-top: 5%; }
 
 .encuesta__radio_button label {
   padding-right: 25px; }
@@ -51,6 +48,8 @@
   background-image: url("../img/blurred-background2.jpg");
   background-size: cover; }
   .bg__register .panel-default {
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, 0.9);
     border-color: transparent; }
 
 .dashboard .dashboard__title {
