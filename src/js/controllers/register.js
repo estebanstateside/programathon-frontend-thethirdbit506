@@ -11,6 +11,7 @@
         vm.title = "Registrar";
         vm.submit = "Registrarse";
         vm.userDisabled = false;
+        vm.isRegister = true;
 
         vm.isPosting = false;
 

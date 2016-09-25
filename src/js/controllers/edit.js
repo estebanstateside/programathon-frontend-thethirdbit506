@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .controller('EditController', ['dataService', 'Notification', '$rootScope', '$location', 'gendersService', 'sectorsService', EditController]);
+        .controller('EditController', ['dataService', 'Notification', '$rootScope', '$location', 'gendersService', 'sectorsService', 'constants', 'sessionService', EditController]);
 
-    function EditController(dataService, Notification, $rootScope, $location, gendersService, sectorsService) {
+    function EditController(dataService, Notification, $rootScope, $location, gendersService, sectorsService, constants, sessionService) {
         var vm = this;
         vm.formData = {};
 
@@ -13,6 +13,7 @@
         vm.submit = "Actualizar información";
         vm.loadedFromApi = false;
         vm.userDisabled = true;
+        vm.isRegister = false;
 
         gendersService.getGenders().then(function(data) {
             vm.genders = data.data;
@@ -49,10 +50,10 @@
                     vm.formData.link_pagina_web = vm.formData.social[prop].Link;
                 }
             }
-            
+
             dataService.getCountries().then(function(data) {
                 vm.countries = data.data;
-                
+
                 vm.formData.pais = vm.formData.country_id;
 
                 var choosenCountry = vm.countries.filter(function(data) {
@@ -60,10 +61,8 @@
                 })[0];
 
                 vm.estados = choosenCountry.estados;
-                
+
                 vm.loadedFromApi = true;
-                
-                console.log(vm.formData);
             });
         });
 
@@ -71,8 +70,6 @@
             for (var prop in user.data) {
                 vm.formData[prop] = user.data[prop]
             }
-
-            console.log(vm.formData);
         });
 
         vm.getYears = function() {
@@ -101,9 +98,37 @@
         vm.send = function(model) {
             var form = Object.assign({}, model);
             form.logo = vm.isFile;
-            dataService.update($rootScope.sessionData.PymeID, form).then(function(data) {
-                console.log(data);
-            });
+            vm.isPosting = true;
+
+            dataService.update($rootScope.sessionData.PymeID, form)
+                .then(function(data) {
+                    if (data.statusText === 'Created') {
+                        vm.formData.PymeID = vm.formData.id;
+                        vm.formData.UsuarioId = vm.formData.usuario_id;
+                        vm.formData.Usuario = vm.formData.nombre_usuario;
+                        vm.formData.PaisID = vm.formData.pais;
+
+                        if (vm.formData.PymeID && vm.formData.UsuarioId) {
+                            sessionService.signIn(vm.formData, function() {
+                                Notification.success('¡El usuario fue actualizado!');
+                            });
+                        } else {
+                            Notification.error(constants.messages.error);
+                        }
+                    } else {
+                        Notification.error(constants.messages.error);
+                    }
+                })
+                .catch(function(error) {
+                    if (error.data && error.data.message) {
+                        Notification.error(error.data.message);
+                    } else {
+                        Notification.error(constants.messages.error);
+                    }
+                })
+                .finally(function() {
+                    vm.isPosting = false;
+                });
         };
 
         vm.cleanForm = function() {
