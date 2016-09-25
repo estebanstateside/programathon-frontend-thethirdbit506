@@ -23,13 +23,18 @@
             })
 
             .when('/administrador', {
-                    templateUrl: 'views/dashboard.html',
-                    controller: 'AdminController',
-                    controllerAs: 'admin'
-                })
-                .otherwise({
-                    redirectTo: '/registro'
-                });
+                templateUrl: 'views/dashboard.html',
+                controller: 'AdminController',
+                controllerAs: 'admin'
+            })
+            .when('/encuesta', {
+              templateUrl: 'views/encuesta.html',
+              controller: 'EncuestaController',
+              controllerAs: 'encuesta'
+            })
+            .otherwise({
+                redirectTo: '/registro'
+            });
             $locationProvider.html5Mode(false);
 
             $httpProvider.interceptors.push([
