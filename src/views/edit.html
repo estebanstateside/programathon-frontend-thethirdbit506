@@ -63,7 +63,7 @@
                         <label>Año de inicio de operaciones</label>
                         <select class="form-control" name="anno_inicio_operaciones" ng-model="perfil.formData.anno_inicio_operaciones" required>
                           <option value="">Seleccione el año de inicio de operaciones</option>
-                          <option ng-repeat="year in perfil.getYears()" value="{{year % 100}}">{{year}}</option>
+                          <option ng-repeat="year in perfil.getYears()" value="{{year}}">{{year}}</option>
                         </select>
                         <div ng-messages="registerForm.anno_inicio_operaciones.$error" role="alert">
                           <div class="text-danger" ng-message="required">Campo requerido.</div>
@@ -178,8 +178,7 @@
 
                       <div class="form-group">
                         <label>Correo electrónico</label>
-                        <input ng-if="vm.isRegister" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico" required>
-                        <input ng-if="!vm.isRegister" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico">
+                        <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico" required>
                         <div ng-messages="registerForm.correo_electronico.$error" role="alert">
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                           <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
@@ -188,8 +187,7 @@
 
                       <div class="form-group">
                         <label>Repetir correo electrónico</label>
-                        <input ng-if="vm.isRegister" class="form-control" match="perfil.formData.correo_electronico" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
-                        <input ng-if="!vm.isRegister" class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck">
+                        <input class="form-control" match="perfil.formData.correo_electronico" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
                         <div ng-messages="registerForm.CorreoElectronicoCheck.$error" role="alert">
                           <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
@@ -232,20 +230,18 @@
 
                       <div class="form-group">
                         <label>Contraseña</label>
-                        <input ng-if="vm.isRegister" type="password" ng-pattern="/^([a-z0-9]){8,10}$/" class="form-control" name="contrasena" ng-model="perfil.formData.contrasena" required>
-                        <input ng-if="!vm.isRegister" type="password" class="form-control" name="contrasena" ng-model="perfil.formData.contrasena">
+                        <input type="password" ng-pattern="/^([a-z0-9]){8,10}$/" class="form-control" name="contrasena" ng-model="perfil.formData.contrasena" required>
                         <div ng-messages="registerForm.contrasena.$error" role="alert">
-                          <div ngclass="text-danger" ng-message="required">Campo requerido.</div>
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="pattern">Contraseña no válida.</div>
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label>Repetir contraseña</label>
-                        <input ng-if="vm.isRegister" type="password" class="form-control" match="perfil.formData.contrasena" ng-pattern="/^([a-z0-9]){8,10}$/" name="ContrasenaCheck" ng-model="ContrasenaCheck" required>
-                        <input ng-if="!vm.isRegister" type="password" class="form-control" name="ContrasenaCheck" ng-model="ContrasenaCheck">
+                        <input type="password" class="form-control" match="perfil.formData.contrasena" ng-pattern="/^([a-z0-9]){8,10}$/" name="ContrasenaCheck" ng-model="ContrasenaCheck" required>
                         <div ng-messages="registerForm.ContrasenaCheck.$error" role="alert">
-                          <div ngclass="text-danger" ng-message="required">Campo requerido.</div>
+                          <div class="text-danger" ng-message="required">Campo requerido.</div>
                           <div class="text-danger" ng-message="pattern">Contraseña no válida.</div>
                           <div class="text-danger" ng-message="match">Las contraseñas deben coincidir.</div>
                         </div>
