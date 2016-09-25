@@ -1,14 +1,11 @@
 .bg__image__login {
-  background-image: url('../img/blurred-background.jpg');
-  background-size: cover;
-  position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    background-image: url('../img/blurred-background.jpg');
+    background-size: cover;
+    height: 100vh;
 }
 
 .login__container {
-  background-color: rgba(231, 234, 239, 0.7);
-  border-color: transparent;
+    background-color: rgba(231, 234, 239, 0.7);
+    border-color: transparent;
+    margin-top: 5%;
 }
