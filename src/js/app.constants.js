@@ -8,7 +8,8 @@
             messages: {
                 error: '¡Hubo un error, trate más tarde!',
                 required: '¡Faltan algunos campos requeridos!',
-                encuesta: '¡Todas las preguntas son requeridas!'
+                encuesta: '¡Todas las preguntas son requeridas!',
+                disable_pyme: '¡Estás deshabilitando el PYME!'
             }
         });
 })();

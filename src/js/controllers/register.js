@@ -7,7 +7,7 @@
 
     function RegisterController(dataService, gendersService, sectorsService, Notification, $location, constants, sessionService) {
         var vm = this;
-        
+
         vm.formData = {};
         vm.title = "Registrar";
         vm.submit = "Registrarse";
@@ -30,19 +30,19 @@
             vm.sectors = data.data;
         });
 
-        vm.cleanForm = function () {
+        vm.cleanForm = function() {
             vm.formData = {};
         };
 
-        vm.getStates = function (id) {
-           var choosenCountry = vm.countries.filter( function ( data ) {
-              return data.id === id;
+        vm.getStates = function(id) {
+            var choosenCountry = vm.countries.filter(function(data) {
+                return data.id === id;
             })[0];
 
             vm.estados = choosenCountry.estados;
         }
 
-        vm.getYears = function () {
+        vm.getYears = function() {
             var actualYear = new Date().getFullYear();
             var limitYear = 1900;
             var years = [];
@@ -54,11 +54,12 @@
             return years;
         }
 
-        vm.file  = function (file) {
+        vm.file = function(file) {
             var fileReader = new FileReader();
 
             fileReader.readAsDataURL(file);
-            fileReader.onload = function (e) {
+            
+            fileReader.onload = function(e) {
                 var dataUrl = e.target.result;
                 vm.isFile = dataUrl;
             };
