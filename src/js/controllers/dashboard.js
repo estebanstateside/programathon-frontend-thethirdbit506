@@ -2,10 +2,19 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('AdminController', ['config', 'dataService', 'sessionService', '$location', '$rootScope', AdminController]);
+        .controller('AdminController', ['Facebook','config', 'dataService', 'sessionService', '$location', '$rootScope','$routeParams', AdminController]);
 
-    function AdminController(config, dataService, sessionService, $location, $rootScope) {
+    function AdminController(Facebook, config, dataService, sessionService, $location, $rootScope, $routeParams) {
         var vm = this;
+
+        vm.code = getURLParameter('code');
+
+        Facebook.login(function(response) {
+          console.log(response);
+          Facebook.api('/me', function(response) {
+            console.log(response);
+          });
+        });
 
         dataService.getPyme($rootScope.sessionData.PymeID).then(function(pyme){
           vm.business = pyme.data;
@@ -53,5 +62,9 @@
             return today;
 
         };
+
+        function getURLParameter(name) {
+          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        }
     };
 })();
