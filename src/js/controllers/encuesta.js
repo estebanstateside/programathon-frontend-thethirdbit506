@@ -24,15 +24,6 @@
           console.log(response);
         });
 
-        // Facebook.getLoginStatus(function(response) {
-        //   console.log(response);
-        //   if(response.status === 'connected') {
-        //     vm.loggedIn = true;
-        //   } else {
-        //     vm.loggedIn = false;
-        //   }
-        // });
-
         gendersService.getGenders().then(function(data) {
             vm.genders = data.data;
         });
