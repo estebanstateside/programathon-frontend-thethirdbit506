@@ -19,12 +19,24 @@
           }
         }
 
+        function postToPyme(pymeId) {
+          return $http.get(constants.api + '/postfb/id/' + pymeId);
+        }
+
         function getUser(userId) {
             return $http.get(constants.api + '/usuarios/id/' + userId);
         }
 
         function postQuestions(id, data) {
             return $http.post(constants.api + '/respuestas/id/' + id, data);
+        }
+
+        function getQuestions() {
+            return $http.get(constants.api + '/preguntas');
+        }
+
+        function getResponses(id) {
+            return $http.get(constants.api + '/respuestas/id/' + id);
         }
 
         function login(formData) {
@@ -57,7 +69,10 @@
             register: register,
             update: update,
             getPyme: getPyme,
-            postQuestions: postQuestions
+            postQuestions: postQuestions,
+            getQuestions: getQuestions,
+            getResponses: getResponses,
+            postToPyme: postToPyme
         }
     }
 
