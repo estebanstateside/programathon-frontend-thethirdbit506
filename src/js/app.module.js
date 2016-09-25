@@ -3,7 +3,9 @@
     angular
         .module('pymeFbApp', [
             'ngRoute',
-            'facebook',
-            'ui-notification'
+            'ui-notification',
+            'flow',
+            'ngMessages',
+            'facebook'
         ]);
 })();

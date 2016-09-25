@@ -3,3 +3,8 @@ input:focus,
 button:focus,
 .btn:focus {
   outline: none; }
+
+.form-group {
+  margin-bottom: 30px; }
+  .form-group input[type="checkbox"] {
+    margin-left: 10px; }
