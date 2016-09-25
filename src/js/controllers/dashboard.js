@@ -9,13 +9,19 @@
 
         dataService.getPyme($rootScope.sessionData.PymeID).then(function(pyme){
           vm.business = pyme.data;
+
+          console.log(vm.business);
+        });
+
+        dataService.getUser($rootScope.sessionData.UsuarioId).then(function(user){
+            vm.user = user.data;
+
+            console.log(vm.user);
         });
 
         vm.title = 'Panel de Métricas';
 
         vm.time = getCurrentDate();
-
-        vm.user = $rootScope.sessionData.Usuario;
 
         vm.signOut = function() {
             sessionService.signOut(function() {

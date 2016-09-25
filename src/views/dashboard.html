@@ -9,27 +9,10 @@
         </button>
         <a class="navbar-brand" href="#/administrador">{{admin.business.nombre_comercio}}</a>
     </div>
-    <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
-        <!-- /.dropdown -->
         <li><a href="" class="hidden-xs" ng-click="admin.signOut()"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
-        <!-- <li>
-            <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#/inicio"><i class="fa fa-user fa-fw"></i> Perfil de usuario</a></li>
-                <li><a href="#/editar"><i class="fa fa-gear fa-fw"></i> Editar información</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#" ng-click="admin.signOut()"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
-              </ul>
-            </div>
-        </li> -->
-        <!-- /.dropdown -->
     </ul>
-    <!-- /.navbar-top-links -->
 </nav>
 
 <div id="page-wrapper" class="dashboard">
@@ -38,7 +21,6 @@
             <h1>{{admin.title}} – <span class="dashboard__title">{{admin.business.nombre_comercio}}</span></h1>
             <span class="hidden-xs dashboard__edit"><a href="#/editar"><i class="fa fa-pencil fa-fw"></i> Editar información</a></span>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
     <div class="row">
         <div class="col-xs-12 col-md-2">
@@ -48,7 +30,7 @@
         </div>
         <div class="col-xs-12 col-md-5 dashboard__data">
             <h4>
-                <i class="fa fa-user fa-fw"></i> Usuario: <span>{{admin.user}}</span>
+                <i class="fa fa-user fa-fw"></i> Usuario: <span>{{admin.user.nombre}}</span>
             </h4>
             <h4>
                 <i class="fa fa-calendar-o fa-fw"></i> Fecha inicial: <span>{{admin.time}}</span>
@@ -56,6 +38,13 @@
             <h4>
                 <i class="fa fa-calendar fa-fw"></i> Fecha final: <span>{{admin.time}}</span>
             </h4>
+            <div class="btn-group dashboard__social" role="group">
+              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-facebook fa-fw"></i> Facebook</a></button>
+              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-twitter fa-fw"></i>  Twitter</a></button>
+              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-youtube fa-fw"></i>  Youtube</a></button>
+              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-linkedin fa-fw"></i>  LinkedIn</a></button>
+              <button type="button" class="btn btn-default"><a href="#"><i class="fa fa-globe fa-fw"></i>  Sitio web</a></button>
+            </div>
         </div>
         <div class="col-xs-12 col-md-5 dashboard__buttons">
             <button type="button" class="btn btn-success"><i class="fa fa-facebook fa-fw"></i> Instalar App Facebook</button>
@@ -68,97 +57,4 @@
             <span class="hidden-xs dashboard__edit"><a href="#/encuesta"><i class="fa fa-pencil fa-question-circle-o"></i> Ver encuesta</a></span>
         </div>
     </div>
-    <!-- /.row -->
-    <!-- <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>New Comments!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-tasks fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">12</div>
-                            <div>New Tasks!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>New Orders!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>Support Tickets!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div> -->
-    <!-- /.row -->
 </div>
-<!-- /#page-wrapper -->

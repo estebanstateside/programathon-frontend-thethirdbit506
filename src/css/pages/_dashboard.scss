@@ -25,6 +25,18 @@
         }
     }
 
+    .dashboard__social {
+        margin-top: 15px;
+        a {
+            color: $color-dark-gray;
+            transition: $transition;
+            &:hover {
+                color: $color-green;
+                text-decoration: none;
+            }
+        }
+    }
+
     .dashboard__buttons {
         padding-top: 10px;
         button {

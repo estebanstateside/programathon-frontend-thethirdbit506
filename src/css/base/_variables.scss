@@ -1,6 +1,7 @@
 $color-white: #fff;
 $color-green: #5cb85c;
 $color-gray: #8a8a8a;
+$color-dark-gray: darken($color-gray, 30%);
 
 
 $transition: all 0.25s ease-out;

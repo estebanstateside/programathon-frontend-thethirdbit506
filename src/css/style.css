@@ -40,6 +40,15 @@
   font-weight: 400;
   color: #8a8a8a; }
 
+.dashboard .dashboard__social {
+  margin-top: 15px; }
+  .dashboard .dashboard__social a {
+    color: #3e3e3e;
+    transition: all 0.25s ease-out; }
+    .dashboard .dashboard__social a:hover {
+      color: #5cb85c;
+      text-decoration: none; }
+
 .dashboard .dashboard__buttons {
   padding-top: 10px; }
   .dashboard .dashboard__buttons button {
