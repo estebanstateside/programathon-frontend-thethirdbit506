@@ -15,6 +15,18 @@
             return (Usuario !== '' && PaisID !== '' && Fecha !== '' && PymeID !== '');
         }
 
+        function loadToRoot () {
+          var Usuario = $cookies.get('Usuario');
+          var PaisID = $cookies.get('PaisID');
+          var Fecha = $cookies.get('Fecha');
+          var PymeID = $cookies.get('PymeID');
+          $rootScope.sessionData = {
+              Usuario: Usuario,
+              PaisID: PaisID,
+              PymeID: PymeID
+          };
+        }
+
         function signIn(formData, callback) {
             $cookies.put('Usuario', formData.Usuario);
             $cookies.put('PaisID', formData.PaisID);
