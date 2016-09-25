@@ -66,8 +66,7 @@
             update: update,
             getPyme: getPyme,
             postQuestions: postQuestions,
-            getQuestions: getQuestions
-            postQuestions: postQuestions,
+            getQuestions: getQuestions,
             postToPyme: postToPyme
         }
     }
