@@ -85,8 +85,12 @@
                         Notification.error(constants.messages.error);
                     }
                 })
-                .catch(function() {
-                    Notification.error(constants.messages.error);
+                .catch(function(error) {
+                    if (error.data && error.data.message) {
+                        Notification.error(error.data.message);
+                    } else {
+                        Notification.error(constants.messages.error);
+                    }
                 })
                 .finally(function() {
                     vm.isPosting = false;
