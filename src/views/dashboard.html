@@ -47,8 +47,8 @@
               <button ng-repeat="item in admin.socialLinks" type="button" class="btn btn-default"><a href="{{item.url}}" target="_blank"><i class="fa fa-{{item.type}} fa-fw"></i>  {{ item.name }} </a></button>
             </div>
         </div>
-        <div class="col-xs-12 col-md-5 dashboard__buttons">
-            <button type="button" class="btn btn-success"><i class="fa fa-facebook fa-fw"></i> Instalar App Facebook</button>
+        <div class="col-xs-12 col-md-4 dashboard__buttons">
+            <a class="btn btn-success" href="https://www.facebook.com/v2.7/dialog/oauth?client_id=1203377526408832&redirect_uri=http://thethirdbitapp.herokuapp.com/&scope=manage_pages,publish_pages"><i class="fa fa-facebook fa-fw"></i>Instalar App Facebook</a>    
             <button type="button" class="btn btn-default"><i class="fa fa-search fa-fw"></i> Consultar</button>
         </div>
     </div>
