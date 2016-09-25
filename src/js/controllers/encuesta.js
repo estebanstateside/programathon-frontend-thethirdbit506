@@ -16,6 +16,11 @@
             vm.genders = data.data;
         });
 
+        dataService.getQuestions().then(function(data){
+            vm.questions = data.data;
+            console.log(data.data);
+        })
+
         vm.ages = [
             {
                 Nombre: '12-17',

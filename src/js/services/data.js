@@ -31,6 +31,10 @@
             return $http.post(constants.api + '/respuestas/id/' + id, data);
         }
 
+        function getQuestions() {
+            return $http.get(constants.api + '/preguntas');
+        }
+
         function login(formData) {
             var data = {
                 NombreComercio: formData.NombreComercio,
@@ -62,6 +66,7 @@
             update: update,
             getPyme: getPyme,
             postQuestions: postQuestions,
+            getQuestions: getQuestions,
             postToPyme: postToPyme
         }
     }
