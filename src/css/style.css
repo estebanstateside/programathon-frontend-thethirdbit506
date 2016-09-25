@@ -85,3 +85,6 @@
     margin-left: 15px; }
     .dashboard .dashboard__buttons .btn:first-child {
       margin-right: 0; }
+
+.dashboard .dashboard__search button.btn {
+  margin-top: 25px; }
