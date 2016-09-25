@@ -17,9 +17,9 @@
 
         Facebook.getLoginStatus(function(response) {
           if(response.status === 'connected') {
-            $scope.loggedIn = true;
+            vm.loggedIn = true;
           } else {
-            $scope.loggedIn = false;
+            vm.loggedIn = false;
           }
         });
 
