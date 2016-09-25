@@ -53,7 +53,7 @@
 
           <div class="form-group col-lg-4 col-xs-12">
             <label>Ingrese la fecha inicial</label>
-            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_inicial" placeholder="Dia/mes/año" ng-model="formDate.fecha_inicial" required ng-init="formDate.fecha_inicial = admin.getCurrentDate()">
+            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_inicial" placeholder="Dia/mes/año" ng-model="admin.formData.fecha_inicial" required ng-init="admin.formData.fecha_inicial = admin.getCurrentDate()">
             <div ng-messages="searchData.fecha_inicial.$error">
               <div class="text-danger" ng-if="searchData.fecha_inicial.$touched" ng-message="pattern">Fecha no válida. Ejemplo: 12/03/2016</div>
             </div>
@@ -61,49 +61,24 @@
 
           <div class="form-group col-lg-4 col-xs-12">
             <label>Ingrese la fecha final</label>
-            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_final" placeholder="Dia/mes/año" ng-model="formDate.fecha_final" required ng-init="formDate.fecha_final = admin.getCurrentDate()">
+            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_final" placeholder="Dia/mes/año" ng-model="admin.formData.fecha_final" required ng-init="admin.formData.fecha_final = admin.getCurrentDate()">
             <div ng-messages="searchData.fecha_final.$error">
               <div class="text-danger" ng-if="searchData.fecha_final.$touched" ng-message="pattern">Fecha no válida. Ejemplo: 12/03/2016</div>
             </div>
           </div>
           <div class="form-group col-lg-4 col-xs-12">
-            <button type="button" ng-disabled="!searchData.$valid" ng-click="admin.getResults(formDate)" class="btn btn-primary"><i class="fa fa-search fa-fw"></i> Consultar</button>
+            <button type="button" ng-disabled="!searchData.$valid" ng-click="admin.getResponses()" class="btn btn-primary"><i class="fa fa-search fa-fw"></i> Consultar</button>
           </div>
         </form>
     </div>
-    <div class="row">
-        <div class="col-lg-8 hidden-xs hidden-sm hidden-lg">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                Actions
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li><a href="#">Action</a>
-                                </li>
-                                <li><a href="#">Another action</a>
-                                </li>
-                                <li><a href="#">Something else here</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div id="morris-area-chart"></div>
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
+    <div class="row text-center" ng-hide="admin.responsesAvailable || admin.isLoadingResponses">
+        <h3>No hay respuestas hasta el momento.</h3>
+    </div>
+    <div class="row text-center" ng-show="admin.isLoadingResponses">
+        <h3><i class="fa fa-spinner fa-pulse fa-fw" ng-show="admin.isLoadingResponses"></i>
+        Buscando respuestas...</h3>
+    </div>
+    <div class="row" ng-show="admin.responsesAvailable" ng-hide="admin.isLoadingResponses">
         <div class="col-xs-12 col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -112,7 +87,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div id="chart-age"></div>
+                            <div class="morris-charts" id="chart-age"></div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +99,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Genero del encuestado
                 </div>
                 <div class="panel-body">
-                    <div id="chart-gender"></div>
+                    <div class="morris-charts" id="chart-gender"></div>
                 </div>
             </div>
         </div>
@@ -134,7 +109,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Calidad del producto o servicio
                 </div>
                 <div class="panel-body">
-                    <div id="chart-question-one"></div>
+                    <div class="morris-charts" id="chart-question-one"></div>
                 </div>
             </div>
         </div>
@@ -144,7 +119,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Tiempo de espera o atención
                 </div>
                 <div class="panel-body">
-                    <div id="chart-question-two"></div>
+                    <div class="morris-charts" id="chart-question-two"></div>
                 </div>
             </div>
         </div>
@@ -154,7 +129,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Imagen de las instalaciones
                 </div>
                 <div class="panel-body">
-                    <div id="chart-question-three"></div>
+                    <div class="morris-charts" id="chart-question-three"></div>
                 </div>
             </div>
         </div>
@@ -164,7 +139,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Disponibilidad de producto o servicio solicitado
                 </div>
                 <div class="panel-body">
-                    <div id="chart-question-four"></div>
+                    <div class="morris-charts" id="chart-question-four"></div>
                 </div>
             </div>
         </div>
@@ -174,7 +149,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Atención del personal
                 </div>
                 <div class="panel-body">
-                    <div id="chart-question-five"></div>
+                    <div class="morris-charts" id="chart-question-five"></div>
                 </div>
             </div>
         </div>
