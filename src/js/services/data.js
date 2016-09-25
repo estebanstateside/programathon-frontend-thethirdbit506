@@ -23,6 +23,14 @@
             return $http.get(constants.api + '/usuarios/id/' + userId);
         }
 
+        function postQuestions(id, data) {
+            return $http.post(constants.api + '/respuestas/id/' + id, data);
+        }
+
+        function getQuestions() {
+            return $http.get(constants.api + '/preguntas');
+        }
+
         function login(formData) {
             var data = {
                 NombreComercio: formData.NombreComercio,
@@ -52,7 +60,9 @@
             login: login,
             register: register,
             update: update,
-            getPyme: getPyme
+            getPyme: getPyme,
+            postQuestions: postQuestions,
+            getQuestions: getQuestions
         }
     }
 

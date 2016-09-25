@@ -95,14 +95,18 @@
         }
 
         vm.file = function(file) {
-            var fileReader = new FileReader();
+            if (file.size < 5000 && file.type === "image/png" || file.size < 5000 && file.type === "image/jpg" ) {
+                var fileReader = new FileReader();
 
-            fileReader.readAsDataURL(file);
-
-            fileReader.onload = function(e) {
-                var dataUrl = e.target.result;
-                vm.isFile = dataUrl;
-            };
+                fileReader.readAsDataURL(file);
+                
+                fileReader.onload = function(e) {
+                    var dataUrl = e.target.result;
+                    vm.isFile = dataUrl;
+                }
+            } else {
+                Notification.error(constants.messages.errorFile);
+            }
         }
 
         vm.send = function(model) {
