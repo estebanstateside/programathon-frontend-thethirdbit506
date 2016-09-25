@@ -10,31 +10,34 @@
                     controllerAs: 'login'
                 })
 
-            .when('/registro', {
-                templateUrl: 'views/register.html',
-                controller: 'RegisterController',
-                controllerAs: 'perfil'
-            })
+                .when('/registro', {
+                    templateUrl: 'views/register.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'perfil'
+                })
 
-            .when('/editar', {
-                templateUrl: 'views/register.html',
-                controller: 'EditController',
-                controllerAs: 'perfil'
-            })
+                .when('/editar', {
+                    templateUrl: 'views/register.html',
+                    controller: 'EditController',
+                    controllerAs: 'perfil'
+                })
 
-            .when('/administrador', {
-                templateUrl: 'views/dashboard.html',
-                controller: 'AdminController',
-                controllerAs: 'admin'
-            })
-            .when('/encuesta', {
-              templateUrl: 'views/encuesta.html',
-              controller: 'EncuestaController',
-              controllerAs: 'encuesta'
-            })
-            .otherwise({
-                redirectTo: '/registro'
-            });
+                .when('/administrador', {
+                    templateUrl: 'views/dashboard.html',
+                    controller: 'AdminController',
+                    controllerAs: 'admin'
+                })
+                
+                .when('/encuesta', {
+                    templateUrl: 'views/encuesta.html',
+                    controller: 'EncuestaController',
+                    controllerAs: 'encuesta'
+                })
+                
+                .otherwise({
+                    redirectTo: '/inicio'
+                });
+            
             $locationProvider.html5Mode(false);
 
             $httpProvider.interceptors.push([

@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('LoginController', ['dataService', 'Notification', 'config', 'constants', LoginController]);
+        .controller('LoginController', ['dataService', 'Notification', 'config', 'constants', 'sessionService', '$location', LoginController]);
 
-    function LoginController(dataService, Notification, config, constants) {
+    function LoginController(dataService, Notification, config, constants, sessionService, $location) {
         var vm = this;
 
         vm.title = config.title;
@@ -41,8 +41,15 @@
                 dataService.login(vm.formData)
                     .then(function(data) {
                         if (data.statusText === 'OK') {
-                            // TODO: Save data in cookies and redirect to /dashboard
-                            console.log(data);
+                            vm.formData.PymeID = data.data[0].id;
+
+                            if (vm.formData.PymeID) {
+                                sessionService.signIn(vm.formData, function() {
+                                    $location.path('/administrador');
+                                });
+                            } else {
+                                Notification.error(constants.messages.error);
+                            }
                         } else {
                             Notification.error(constants.messages.error);
                         }

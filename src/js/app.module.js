@@ -6,6 +6,7 @@
             'ui-notification',
             'flow',
             'ngMessages',
-            'facebook'
+            'facebook',
+            'ngCookies'
         ]);
 })();
