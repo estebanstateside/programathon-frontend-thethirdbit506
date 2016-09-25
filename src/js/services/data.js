@@ -19,6 +19,10 @@
           }
         }
 
+        function getUser(userId) {
+            return $http.get(constants.api + '/usuarios/id/' + userId);
+        }
+
         function login(formData) {
             var data = {
                 NombreComercio: formData.NombreComercio,
@@ -34,23 +38,20 @@
             });
         }
 
-        // var register = function (data) {
-        //
-        //     return $http({
-        //         url: constants.api + '/pyme',
-        //         method: "POST",
-        //         data: (data)
-        //     });
-        // };
-
         function register(data) {
             return $http.post(constants.api + '/pyme', data);
         }
 
+        function update(id,data) {
+            return $http.post(constants.api + '/pyme/id/' + id, data)
+        }
+
         return {
             getCountries: getCountries,
+            getUser: getUser,
             login: login,
             register: register,
+            update: update,
             getPyme: getPyme
         }
     }

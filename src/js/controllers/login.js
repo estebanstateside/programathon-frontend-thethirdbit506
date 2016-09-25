@@ -42,6 +42,7 @@
                     .then(function(data) {
                         if (data.statusText === 'OK') {
                             vm.formData.PymeID = data.data[0].id;
+                            vm.formData.UsuarioId = data.data[0].id_usuario;
 
                             if (vm.formData.PymeID) {
                                 sessionService.signIn(vm.formData, function() {

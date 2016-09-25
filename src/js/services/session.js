@@ -17,18 +17,21 @@
 
         function loadToRoot() {
           var Usuario = $cookies.get('Usuario');
+          var UsuarioId = $cookies.get('UsuarioId');
           var PaisID = $cookies.get('PaisID');
           var Fecha = $cookies.get('Fecha');
           var PymeID = $cookies.get('PymeID');
           $rootScope.sessionData = {
               Usuario: Usuario,
               PaisID: PaisID,
-              PymeID: PymeID
+              PymeID: PymeID,
+              UsuarioId: UsuarioId
           };
         }
 
         function signIn(formData, callback) {
             $cookies.put('Usuario', formData.Usuario);
+            $cookies.put('UsuarioId', formData.UsuarioId)
             $cookies.put('PaisID', formData.PaisID);
             $cookies.put('PymeID', formData.PymeID);
             $cookies.put('Fecha', new Date());

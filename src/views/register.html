@@ -155,10 +155,21 @@
 
                   <div class="form-group">
                     <label>Correo electrónico contacto</label>
-                    <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoContacto" ng-model="perfil.formData.CorreoContacto" required>
-                    <div ng-messages="registerForm.CorreoContacto.$error" role="alert">
+                    <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_contacto" ng-model="perfil.formData.correo_contacto" required>
+                    <div ng-messages="registerForm.correo_contacto.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                       <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Repetir correo electrónico</label>
+                    <input class="form-control" match="perfil.formData.correo_contacto" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
+                    <div ng-messages="registerForm.CorreoElectronicoCheck.$error" role="alert">
+                      <div class="text-danger" ng-message="required">Campo requerido.</div>
+                      <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
+                      <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
+                      <div class="text-danger" ng-message="match">Los correos deben coincidir.</div>
                     </div>
                   </div>
 
@@ -200,28 +211,7 @@
                     <div class="text-danger" ng-if="ContrasenaCheck && perfil.formData.contrasena != ContrasenaCheck">Las contraseñas deben coincidir.</div>
                   </div>
 
-                  <div class="form-group">
-                    <label>Correo electrónico</label>
-                    <input class="form-control" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="correo_electronico" ng-model="perfil.formData.correo_electronico" required>
-                    <div ng-messages="registerForm.correo_electronico.$error" role="alert">
-                      <div class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
-                      <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Repetir correo electrónico</label>
-                    <input class="form-control" match="perfil.formData.correo_electronico" ng-maxlength="50" ng-pattern="/^([^@\s]+)@((?:[-a-zA-Z0-9]+\.)+[a-zA-Z]{2,})/" name="CorreoElectronicoCheck" ng-model="CorreoElectronicoCheck" required>
-                    <div ng-messages="registerForm.CorreoElectronicoCheck.$error" role="alert">
-                      <div class="text-danger" ng-message="required">Campo requerido.</div>
-                      <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
-                      <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
-                      <div class="text-danger" ng-message="match">Los correos deben coincidir.</div>
-                    </div>
-                  </div>
-
-                  <button class="btn btn-lg btn-success btn-block" disabled=!perfil.formData.$valid ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
+                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
                   <button class="btn btn-lg btn-danger btn-block" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
                 </form>
             </div>
