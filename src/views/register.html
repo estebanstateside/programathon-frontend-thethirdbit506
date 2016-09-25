@@ -1,3 +1,19 @@
+<nav ng-if="!vm.isRegister" class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/administrador">{{perfil.business.nombre_comercio}}</a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li><a href="" class="hidden-xs" ng-click="perfil.signOut()"><i class="fa fa-sign-out fa-fw"></i> Cerrar sesión</a></li>
+    </ul>
+</nav>
+
 <div class="bg__register">
     <div class="container">
         <div class="row">

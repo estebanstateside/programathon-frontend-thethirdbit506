@@ -14,6 +14,10 @@
         vm.loadedFromApi = false;
         vm.userDisabled = true;
         vm.isRegister = false;
+        
+        vm.signOut = $rootScope.signOut;
+        
+        vm.business = $rootScope.business;
 
         gendersService.getGenders().then(function(data) {
             vm.genders = data.data;

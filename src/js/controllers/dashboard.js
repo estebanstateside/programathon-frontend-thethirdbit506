@@ -15,6 +15,7 @@
 
         dataService.getPyme(vm.PymeID).then(function(pyme){
           vm.business = pyme.data;
+          $rootScope.business = vm.business;
 
           vm.socialLinks = [];
           console.log(vm.business.social);
@@ -66,6 +67,8 @@
                 $location.path('/inicio');
             });
         };
+        
+        $rootScope.signOut = vm.signOut;
 
         vm.getResults = function (data) {
           console.log(data);
