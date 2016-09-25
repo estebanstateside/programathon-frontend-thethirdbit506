@@ -51,7 +51,7 @@
 
           <div class="form-group col-lg-4 col-xs-12">
             <label>Ingrese la fecha inicial</label>
-            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_inicial" placeholder="Dia/mes/año" ng-model="formDate.fecha_inicial" required>
+            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_inicial" placeholder="Dia/mes/año" ng-model="formDate.fecha_inicial" required ng-init="formDate.fecha_inicial = admin.getCurrentDate()">
             <div ng-messages="searchData.fecha_inicial.$error">
               <div class="text-danger" ng-if="searchData.fecha_inicial.$touched" ng-message="pattern">Fecha no válida. Ejemplo: 12/03/2016</div>
             </div>
@@ -59,7 +59,7 @@
 
           <div class="form-group col-lg-4 col-xs-12">
             <label>Ingrese la fecha final</label>
-            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_final" placeholder="Dia/mes/año" ng-model="formDate.fecha_final" required>
+            <input ng-pattern="/^(([0-3]{1}[0-9]{1})\/[0-1]{1}[0-9]{1})\/([0-9]{4})$/" class="form-control" name="fecha_final" placeholder="Dia/mes/año" ng-model="formDate.fecha_final" required ng-init="formDate.fecha_final = admin.getCurrentDate()">
             <div ng-messages="searchData.fecha_final.$error">
               <div class="text-danger" ng-if="searchData.fecha_final.$touched" ng-message="pattern">Fecha no válida. Ejemplo: 12/03/2016</div>
             </div>
