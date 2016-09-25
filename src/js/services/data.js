@@ -3,7 +3,7 @@
 
     angular
         .module('pymeFbApp')
-        .service('dataService', dataService);
+        .service('dataService', ['$http', 'constants', dataService]);
 
     function dataService($http, constants) {
 
@@ -11,13 +11,13 @@
             return $http.get(constants.api + '/pais');
         }
 
-        function getDashboard() {
-            return $http.get(constants.api + '/administrador');
+        function getPyme() {
+            return $http.get(constants.api + '/pyme');
         }
 
         return {
             getCountries: getCountries,
-            getDashboard: getDashboard
+            getPyme: getPyme
         }
     }
 
