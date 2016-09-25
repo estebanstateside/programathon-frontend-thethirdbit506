@@ -33,7 +33,12 @@
 
 .bg__image__login {
   background-image: url("../img/blurred-background.jpg");
-  background-size: cover; }
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0; }
 
 .login__container {
   background-color: rgba(231, 234, 239, 0.7);
@@ -75,8 +80,11 @@
 
 .dashboard .dashboard__buttons {
   padding-top: 10px; }
-  .dashboard .dashboard__buttons button {
+  .dashboard .dashboard__buttons .btn {
     float: right;
     margin-left: 15px; }
-    .dashboard .dashboard__buttons button:first-child {
+    .dashboard .dashboard__buttons .btn:first-child {
       margin-right: 0; }
+
+.dashboard .dashboard__search button.btn {
+  margin-top: 25px; }

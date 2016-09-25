@@ -1,6 +1,11 @@
 .bg__image__login {
   background-image: url('../img/blurred-background.jpg');
   background-size: cover;
+  position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .login__container {
