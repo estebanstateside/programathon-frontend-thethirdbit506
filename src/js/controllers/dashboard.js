@@ -37,11 +37,15 @@
           }
         });
 
-        vm.getResponses = function(id, start, end) {
+        vm.getResponses = function() {
             vm.isLoadingResponses = true;
             $('.morris-charts').empty();
 
-            dataService.getResponses(id, start, end).then(function(data){
+            function parseDate(date) {
+                return date.replace(/\//g, '-');
+            }
+
+            dataService.getResponses(vm.PymeID, parseDate(vm.formData.fecha_inicial), parseDate(vm.formData.fecha_final)).then(function(data){
                 vm.isLoadingResponses = false;
                 console.log(data);
                 vm.females = 0;
