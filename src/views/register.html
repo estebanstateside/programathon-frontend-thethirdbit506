@@ -5,6 +5,10 @@
             <h2 class="text-center">{{perfil.title}}</h2>
             <div class="panel-body">
                 <form name="registerForm">
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos generales de la empresa</h4>
+                  </div>
+
                   <div class="form-group">
                     <label>Nombre Comercio</label>
                     <input class="form-control" name="nombre_comercio" ng-maxlength="100" ng-model="perfil.formData.nombre_comercio" required>
@@ -35,6 +39,7 @@
                   <div class="form-group">
                     <label>Género del Propietario</label>
                     <select class="form-control" name="genero_propietario_id" ng-model="perfil.formData.genero_propietario_id" required>
+                      <option value="">Seleccione el género del propietario</option>
                       <option ng-repeat="genero in perfil.genders" value="{{genero.Id}}">{{genero.Nombre}}</option>
                     </select>
                     <div ng-messages="registerForm.genero_propietario_id.$error" role="alert">
@@ -45,6 +50,7 @@
                   <div class="form-group">
                     <label>Sector</label>
                     <select class="form-control" name="sector_id" ng-model="perfil.formData.sector_id" required>
+                      <option value="">Seleccione el sector</option>
                       <option ng-repeat="sector in perfil.sectors" value="{{sector.Id}}">{{sector.Nombre}}</option>
                     </select>
                     <div ng-messages="registerForm.sector_id.$error" role="alert">
@@ -55,6 +61,7 @@
                   <div class="form-group">
                     <label>Año de inicio de operaciones</label>
                     <select class="form-control" name="anno_inicio_operaciones" ng-model="perfil.formData.anno_inicio_operaciones" required>
+                      <option value="">Seleccione el año de inicio de operaciones</option>
                       <option ng-repeat="year in perfil.getYears()" value="{{year}}">{{year}}</option>
                     </select>
                     <div ng-messages="registerForm.anno_inicio_operaciones.$error" role="alert">
@@ -63,8 +70,9 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Selecciona un país</label>
-                    <select class="form-control" ng-model="perfil.formData.pais" name="pais" ng-change="perfil.getStates(perfil.formData.pais)"required>
+                    <label>País</label>
+                    <select class="form-control" ng-model="perfil.formData.pais" name="pais" ng-change="perfil.getStates(perfil.formData.pais)" required>
+                      <option value="">Selecciona un país</option>
                       <option ng-repeat="country in perfil.countries" value="{{country.id}}">{{country.nombre}}</option>
                     </select>
                     <div ng-messages="registerForm.pais.$error" role="alert">
@@ -76,6 +84,7 @@
                   <div class="form-group">
                     <label>Provincia / Estado / Departamento</label>
                     <select ng-if="perfil.estados.length" class="form-control" name="estado_id" ng-model="perfil.formData.estado_id" required>
+                      <option value="">Selecciona una provincia / estado / departamento</option>
                       <option ng-repeat="estado in perfil.estados" value="{{estado.Id}}">{{estado.Nombre}}</option>
                     </select>
                     <input ng-if="!perfil.estados.length" class="form-control" name="estado_id" ng-model="perfil.formData.estado_id" required>
@@ -95,60 +104,73 @@
 
                   <div ng-if="isActive" class="form-group">
                     <label>PYME activa?</label>
-                    <input ng-model="perfil.formData.es_activa" type="checkbox">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Negocio familiar?</label>
-                    <input ng-model="perfil.formData.es_negocio_familiar" type="checkbox">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Adjuntar logo</label>
-                    <div class="file-upload" flow-init>
-                      <img flow-img="$flow.files[0]"/>
-                      <div>
-                        <input type="file" flow-btn ngf-select="perfil.file(perfil.formData.logo)" ng-model="perfil.formData.logo" name="image"/>
-                      </div>
+                    <input ng-model="perfil.formData.es_activa" name="es_activa" type="checkbox" required>
+                    <div ng-messages="registerForm.es_activa.$error" role="alert">
+                      <div class="text-danger" ng-message="required">Campo requerido.</div>
                     </div>
                   </div>
 
                   <div class="form-group">
+                    <label>Negocio familiar?</label>
+                    <input ng-model="perfil.formData.es_negocio_familiar" name="es_negocio_familiar" type="checkbox" required>
+                    <div ng-messages="registerForm.es_negocio_familiar.$error" role="alert">
+                      <div class="text-danger" ng-message="required">Campo requerido.</div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Adjuntar logo</label>
+                    <div class="file-upload form__image" flow-init>
+                      <img flow-img="$flow.files[0]"/>
+                      <div>
+                        <input type="file" name="logo" flow-btn ngf-select="perfil.file(perfil.formData.logo)" ng-model="perfil.formData.logo" required>
+                      </div>
+                    </div>
+                    <div ng-messages="registerForm.logo.$error" role="alert">
+                      <div class="text-danger" ng-message="required">Campo requerido.</div>
+                    </div>
+                  </div>
+
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos de redes sociales y canales de la empresa</h4>
+                  </div>
+
+                  <div class="form-group">
                     <label>Dirección Facebook</label>
-                    <input class="form-control" name="linkFacebook" ng-maxlength="300" ng-model="perfil.formData.linkFacebook">
-                    <div ng-messages="registerForm.linkFacebook.$error" role="alert">
+                    <input class="form-control" name="link_facebook" ng-maxlength="300" ng-model="perfil.formData.link_facebook">
+                    <div ng-messages="registerForm.link_facebook.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label>Dirección Twitter</label>
-                    <input class="form-control" ng-maxlength="300" name="linkTwitter" ng-model="perfil.formData.linkTwitter">
-                    <div ng-messages="registerForm.linkTwitter.$error" role="alert">
+                    <input class="form-control" ng-maxlength="300" name="link_twitter" ng-model="perfil.formData.link_twitter">
+                    <div ng-messages="registerForm.link_twitter.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label>Dirección Linkedin</label>
-                    <input class="form-control" ng-maxlength="300" name="linkLinkedin" ng-model="perfil.formData.linkLinkedin">
-                    <div ng-messages="registerForm.linkLinkedin.$error" role="alert">
+                    <input class="form-control" ng-maxlength="300" name="link_linkedin" ng-model="perfil.formData.link_linkedin">
+                    <div ng-messages="registerForm.link_linkedin.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label>Dirección Canal YouTube</label>
-                    <input class="form-control" ng-maxlength="300" name="linkYouTube" ng-model="perfil.formData.linkYouTube">
-                    <div ng-messages="registerForm.linkYouTube.$error" role="alert">
+                    <input class="form-control" ng-maxlength="300" name="link_you_tube" ng-model="perfil.formData.link_you_tube">
+                    <div ng-messages="registerForm.link_you_tube.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label>Página Web</label>
-                    <input class="form-control" ng-maxlength="300" name="linkPaginaWeb" ng-model="perfil.formData.linkPaginaWeb">
-                    <div ng-messages="registerForm.linkPaginaWeb.$error" role="alert">
+                    <input class="form-control" ng-maxlength="300" name="link_pagina_web" ng-model="perfil.formData.link_pagina_web">
+                    <div ng-messages="registerForm.link_pagina_web.$error" role="alert">
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 300 caracteres.</div>
                     </div>
                   </div>
@@ -160,6 +182,10 @@
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                       <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
                     </div>
+                  </div>
+
+                  <div class="page-header">
+                    <h4 class="text-muted lead">Datos del usuario</h4>
                   </div>
 
                   <div class="form-group">
@@ -206,9 +232,8 @@
                     <div ng-messages="registerForm.ContrasenaCheck.$error" role="alert">
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                       <div class="text-danger" ng-message="pattern">Contraseña invalida.</div>
+                      <div class="text-danger" ng-message="match">Las contraseñas deben coincidir.</div>
                     </div>
-
-                    <div class="text-danger" ng-if="ContrasenaCheck && perfil.formData.contrasena != ContrasenaCheck">Las contraseñas deben coincidir.</div>
                   </div>
 
                   <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>

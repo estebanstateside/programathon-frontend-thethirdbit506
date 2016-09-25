@@ -3,6 +3,9 @@
   .form-group input[type="checkbox"] {
     margin-left: 10px; }
 
+.form__image img {
+  max-width: 300px; }
+
 .nav li a {
   color: #fff;
   transition: all 0.25s ease-out; }
