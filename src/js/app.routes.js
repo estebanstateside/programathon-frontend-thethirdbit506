@@ -28,7 +28,7 @@
                 controllerAs: 'admin'
             })
 
-            .when('/encuesta', {
+            .when('/:id/encuesta', {
                 templateUrl: 'views/encuesta.html',
                 controller: 'EncuestaController',
                 controllerAs: 'encuesta'
