@@ -29,7 +29,7 @@
   .dashboard .dashboard__edit a {
     color: #8a8a8a;
     transition: all 0.25s ease-out; }
-    .dashboard .dashboard__edit a:hover {
+    .dashboard .dashboard__edit a:hover, .dashboard .dashboard__edit a:focus {
       color: #5cb85c;
       text-decoration: none; }
 

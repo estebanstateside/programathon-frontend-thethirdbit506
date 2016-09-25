@@ -11,7 +11,7 @@
         a {
             color: $color-gray;
             transition: $transition;
-            &:hover {
+            &:hover, &:focus {
                 color: $color-green;
                 text-decoration: none;
             }
