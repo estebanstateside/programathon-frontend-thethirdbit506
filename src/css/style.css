@@ -4,7 +4,7 @@
     margin-left: 10px; }
 
 .form__image img {
-  max-width: 300px; }
+  width: auto; }
 
 .btn-group-justified .btn-default,
 .btn-group-justified .btn-default[disabled]:hover {
