@@ -3,15 +3,30 @@
 
     angular
         .module('pymeFbApp')
-        .service('sessionService', ['$http', '$cookies', 'constants', '$q', sessionService]);
+        .service('sessionService', ['$rootScope', '$http', '$cookies', sessionService]);
 
-    function sessionService($http, $cookies, constants, $q) {
+    function sessionService($rootScope, $http, $cookies) {
+
+        function isValid() {
+            var Usuario = $cookies.get('Usuario') || '';
+            var PaisID = $cookies.get('PaisID') || '';
+            var Fecha = $cookies.get('Fecha') || '';
+            var PymeID = $cookies.get('PymeID') || '';
+            return (Usuario !== '' && PaisID !== '' && Fecha !== '' && PymeID !== '');
+        }
 
         function signIn(formData, callback) {
             $cookies.put('Usuario', formData.Usuario);
             $cookies.put('PaisID', formData.PaisID);
             $cookies.put('PymeID', formData.PymeID);
             $cookies.put('Fecha', new Date());
+            
+            $rootScope.sessionData = {
+                Usuario: formData.Usuario,
+                PaisID: formData.PaisID,
+                PymeID: formData.PymeID
+            };
+            
             callback();
         }
 
@@ -48,10 +63,10 @@
             });
         };
 
-
         return {
             signIn: signIn,
             signOut: signOut,
+            isValid: isValid,
             register: register
         }
     }
