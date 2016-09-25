@@ -197,7 +197,7 @@
                       <div class="text-danger" ng-message="pattern">Contraseña invalida.</div>
                     </div>
 
-                    <div class="text-danger" ng-if="ContrasenaCheck && perfil.formData.Contrasena != ContrasenaCheck">Las contraseñas deben coincidir.</div>
+                    <div class="text-danger" ng-if="ContrasenaCheck && perfil.formData.contrasena != ContrasenaCheck">Las contraseñas deben coincidir.</div>
                   </div>
 
                   <div class="form-group">
@@ -217,13 +217,12 @@
                       <div class="text-danger" ng-message="required">Campo requerido.</div>
                       <div class="text-danger" ng-message="maxlength">Este campo solo permite 50 caracteres.</div>
                       <div class="text-danger" ng-message="pattern">Correo electrónico invalido.</div>
+                      <div class="text-danger" ng-message="match">Los correos deben coincidir.</div>
                     </div>
-
-                    <div class="text-danger" ng-if="CorreoElectronicoCheck && perfil.formData.CorreoElectronico != CorreoElectronicoCheck">Los correos deben coincidir.</div>
                   </div>
 
-                  <button ng-disabled="!registerForm.$valid" class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
-                  <button class="btn btn-lg btn-danger btn-block" ng-click="perfil.cleanForm()" type="button">Cerrar</button>
+                  <button class="btn btn-lg btn-success btn-block" ng-click="perfil.send(perfil.formData)" type="button">Registrar</button>
+                  <button class="btn btn-lg btn-danger btn-block" ng-click="perfil.cleanForm()" type="button">Cancelar</button>
                 </form>
             </div>
         </div>
