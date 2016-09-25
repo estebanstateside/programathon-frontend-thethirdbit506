@@ -71,7 +71,7 @@
           </div>
         </form>
     </div>
-    <div class="row text-center" ng-hide="admin.responsesAvailable">
+    <div class="row text-center" ng-hide="admin.responsesAvailable || admin.isLoadingResponses">
         <h3>No hay respuestas hasta el momento.</h3>
     </div>
     <div class="row text-center" ng-show="admin.isLoadingResponses">
