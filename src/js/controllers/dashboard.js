@@ -12,7 +12,7 @@
         vm.responsesAvailable = false;
         vm.isLoadingResponses = false;
 
-        /*Facebook.login(function(response) {
+        Facebook.login(function(response) {
           console.log(response);
         });
 
@@ -23,7 +23,7 @@
           } else {
             vm.loggedIn = false;
           }
-        });*/
+        });
 
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
