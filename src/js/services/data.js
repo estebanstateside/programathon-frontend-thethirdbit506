@@ -15,9 +15,25 @@
             return $http.get(constants.api + '/administrador');
         }
 
+        function login(formData) {
+            var data = {
+                NombreComercio: formData.NombreComercio,
+                Usuario: formData.Usuario,
+                PaisID: formData.PaisID,
+                Clave: formData.Clave
+            };
+
+            return $http({
+                url: constants.api + '/login',
+                method: 'POST',
+                data: data
+            });
+        }
+
         return {
             getCountries: getCountries,
-            getDashboard: getDashboard
+            getDashboard: getDashboard,
+            login: login
         }
     }
 
