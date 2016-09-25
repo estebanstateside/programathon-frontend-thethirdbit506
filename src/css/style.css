@@ -12,7 +12,9 @@
 
 .navbar-brand {
   color: #5cb85c !important;
-  transition: all 0.25s ease-out; }
+  transition: all 0.25s ease-out;
+  font-size: 21px;
+  font-weight: 500; }
   .navbar-brand:hover {
     color: #80c780 !important; }
 
@@ -27,6 +29,18 @@
   .dashboard .dashboard__edit a {
     color: #8a8a8a;
     transition: all 0.25s ease-out; }
-    .dashboard .dashboard__edit a:hover {
+    .dashboard .dashboard__edit a:hover, .dashboard .dashboard__edit a:focus {
       color: #5cb85c;
       text-decoration: none; }
+
+.dashboard .dashboard__data span {
+  font-weight: 400;
+  color: #8a8a8a; }
+
+.dashboard .dashboard__buttons {
+  padding-top: 10px; }
+  .dashboard .dashboard__buttons button {
+    float: right;
+    margin-left: 15px; }
+    .dashboard .dashboard__buttons button:first-child {
+      margin-right: 0; }
