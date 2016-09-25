@@ -19,8 +19,8 @@
           }
         }
 
-        function postToPyme(pymeId) {
-          return $http.get(constants.api + '/postfb/id/' + pymeId);
+        function postToPyme(pymeId, user_token) {
+          return $http.get(constants.api + '/postfb/id/' + pymeId + '/token/' + user_token);
         }
 
         function getUser(userId) {

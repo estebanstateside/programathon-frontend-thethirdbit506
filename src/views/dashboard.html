@@ -36,11 +36,16 @@
                 <button ng-repeat="item in admin.socialLinks" type="button" class="btn btn-default btn__socialLinks"><a href="{{item.url}}" target="_blank"><i class="fa fa-{{item.type}} fa-fw"></i>  {{ item.name }} </a></button>
             </div>
         </div>
-        <div class="col-xs-12 col-md-2 dashboard__buttons" ng-if="!admin.shared">
-            <a class="btn btn-success" ng-click="admin.sharePost()" ng-disabled="admin.loading">
+        <div class="col-xs-12 col-md-2 dashboard__buttons" ng-if="!admin.installed">
+            <a class="btn btn-success" ng-click="admin.install()" ng-if="">
+              <i class="fa fa-facebook fa-fw"></i>
+              <i class="fa fa-spinner fa-pulse fa-fw"></i>
+              Instalar App Facebook
+            </a>
+            <a class="btn btn-success" ng-click="admin.share()" ng-if="admin.installed" ng-disabled="admin.loading">
               <i class="fa fa-facebook fa-fw"></i>
               <i class="fa fa-spinner fa-pulse fa-fw" ng-show="admin.loading"></i>
-              Instalar App Facebook
+              Compartir Encuesta
             </a>
         </div>
     </div>
