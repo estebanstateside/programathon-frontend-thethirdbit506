@@ -59,11 +59,6 @@
         vm.send = function (model) {
             var form = Object.assign({}, model);
             form.logo = vm.isFile;
-            form.fecha_creacion = '12/12/2012';
-            form.fecha_ultima_actualizacion = '12/12/2012';
-            form.es_facebook_app_instalado = 1;
-            form.es_activa = 1;
-            form.usuario_id = 1;
             sessionService.register(form).then(function(data){
                 console.log(data);
             });
