@@ -2,10 +2,11 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('EncuestaController', ['Notification', 'constants', EncuestaController]);
+        .controller('EncuestaController', ['Notification', 'constants', '$routeParams', EncuestaController]);
 
-    function EncuestaController(Notification, constants) {
+    function EncuestaController(Notification, constants, $routeParams) {
         var vm = this;
+        var PymeID = $routeParams.id;
 
         vm.puntaje = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
