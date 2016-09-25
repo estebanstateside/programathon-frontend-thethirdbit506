@@ -2,10 +2,13 @@
     'use strict';
     angular
         .module('pymeFbApp')
-        .controller('AdminController', ['config', 'dataService', 'sessionService', '$location', '$rootScope','$routeParams', AdminController]);
+        .controller('AdminController', ['Notification', 'config', 'dataService', 'sessionService', '$location', '$rootScope','$routeParams', AdminController]);
 
-    function AdminController( config, dataService, sessionService, $location, $rootScope, $routeParams) {
+    function AdminController(Notification, config, dataService, sessionService, $location, $rootScope, $routeParams) {
         var vm = this;
+
+        vm.shared = false;
+        vm.loading = false;
 
         vm.code = getURLParameter('code');
         vm.PymeID = $rootScope.sessionData.PymeID;
@@ -24,7 +27,14 @@
           }
         });
 
-
+        vm.sharePost = function () {
+          vm.loading = true;
+          dataService.postToPyme(vm.PymeID).then(function(response){
+              vm.shared = true;
+              console.log(response);
+              Notification.success('La encuesta fue compartida con exito');
+          });
+        }
 
         dataService.getUser($rootScope.sessionData.UsuarioId).then(function(user){
             vm.user = user.data;

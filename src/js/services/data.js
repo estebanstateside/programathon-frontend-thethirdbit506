@@ -19,6 +19,10 @@
           }
         }
 
+        function postToPyme(pymeId) {
+          return $http.get(constants.api + '/postfb/id/' + pymeId);
+        }
+
         function getUser(userId) {
             return $http.get(constants.api + '/usuarios/id/' + userId);
         }
@@ -57,7 +61,8 @@
             register: register,
             update: update,
             getPyme: getPyme,
-            postQuestions: postQuestions
+            postQuestions: postQuestions,
+            postToPyme: postToPyme
         }
     }
 
