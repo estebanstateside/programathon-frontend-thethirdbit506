@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .service('sessionService', ['$http', '$cookies', 'constants', '$q' sessionService]);
+        .service('sessionService', ['$http', '$cookies', 'constants', '$q', sessionService]);
 
-    function sessionService($http, $cookies, 'constants', '$q') {
+    function sessionService($http, $cookies, constants, $q) {
 
         function signIn(formData, callback) {
             $cookies.put('Usuario', formData.Usuario);
@@ -44,9 +44,7 @@
             return $http({
                 url: constants.api + '/pyme',
                 method: "POST",
-                data: getModelAsFormData(data),
-                transformRequest: angular.identity,
-                headers: { 'Content-Type': undefined }
+                data: (data)
             });
         };
 
