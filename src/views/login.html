@@ -1,44 +1,51 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <h2 class="text-center">{{login.title}}</h2>
-                <div class="panel-body">
-                    <form role="form" name="loginForm" novalidate>
-                        <fieldset>
-                            <div class="form-group">
-                                <label for="NombreComercio">Nombre Comercial</label>
-                                <input class="form-control" placeholder="Nombre del Comercio" ng-model="login.formData.NombreComercio" name="NombreComercio" type="text" autofocus required>
-                            </div>
-                            <div class="form-group">
-                                <label for="UsuarioID">Nombre de Usuario</label>
-                                <input class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.Usuario" name="Usuario" type="text" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label for="pais">País <i class="fa fa-spinner fa-pulse fa-fw" ng-show="login.isFetchingCountries"></i></label>
-                                <select class="form-control" name="pais" ng-model="login.formData.PaisID" ng-disabled="login.isFetchingCountries" required>
-                                <option value="">Seleccione su País</option>
-                                <option ng-repeat="country in login.countries" value="{{country.id}}">{{country.nombre}}</option>
-                            </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input class="form-control" placeholder="Contraseña" ng-model="login.formData.Clave" name="password" type="password" required="">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-lg btn-success btn-block" ng-click="login.send(loginForm.$valid)" type="button" ng-disabled="!loginForm.$valid">
-                                Acceder <i class="fa fa-spinner fa-pulse fa-fw" ng-show="login.isFetching"></i>
-                            </button>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-lg btn-danger btn-block" ng-click="login.cleanForm()" type="button">Cerrar</button>
-                            </div>
-                            <div class="form-group text-center">
-                                <a href="#/registro">¿No estás registrado?</a>
-                                <a href="mailto:">¿Olvidaste la contraseña?</a>
-                            </div>
-                        </fieldset>
-                    </form>
+<div class="bg__image__login">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default login__container">
+                    <h2 class="text-center">{{login.title}}</h2>
+                    <div class="panel-body">
+                        <form role="form" name="loginForm" novalidate>
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="NombreComercio">Nombre Comercial</label>
+                                    <input class="form-control" placeholder="Nombre del Comercio" ng-model="login.formData.NombreComercio" name="NombreComercio" type="text" autofocus required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="UsuarioID">Nombre de Usuario</label>
+                                    <input class="form-control" placeholder="Nombre de Usuario" ng-model="login.formData.Usuario" name="Usuario" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pais">País <i class="fa fa-spinner fa-pulse fa-fw" ng-show="login.isFetchingCountries"></i></label>
+                                    <select class="form-control" name="pais" ng-model="login.formData.PaisID" ng-disabled="login.isFetchingCountries" required>
+                                    <option value="">Seleccione su País</option>
+                                    <option ng-repeat="country in login.countries" value="{{country.id}}">{{country.nombre}}</option>
+                                </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña</label>
+                                    <input class="form-control" placeholder="Contraseña" ng-model="login.formData.Clave" name="password" type="password" required="">
+                                </div>
+                                <div class="form-group">
+                                    <div class="btn-group btn-group-justified">
+                                        <div class="btn-group" role="group">
+                                            <button class="btn btn-lg btn-default" ng-click="login.send(loginForm.$valid)" type="button" ng-disabled="!loginForm.$valid">
+                                                Acceder <i class="fa fa-spinner fa-pulse fa-fw" ng-show="login.isFetching"></i>
+                                            </button>
+                                        </div>
+                                        <div class="btn-group" role="group">
+                                            <button class="btn btn-lg btn-default login__btn__cancel" ng-click="login.cleanForm()" type="button">Cerrar</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <a href="#/registro">¿No estás registrado?</a>
+                                    <a href="mailto:">¿Olvidaste la contraseña?</a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
