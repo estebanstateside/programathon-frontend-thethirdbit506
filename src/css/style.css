@@ -1,5 +1,32 @@
-a:focus,
-input:focus,
-button:focus,
-.btn:focus {
-  outline: none; }
+.form-group {
+  margin-bottom: 30px; }
+  .form-group input[type="checkbox"] {
+    margin-left: 10px; }
+
+.nav li a {
+  color: #fff;
+  transition: all 0.25s ease-out; }
+  .nav li a:hover {
+    background-color: transparent !important;
+    color: #5cb85c; }
+
+.navbar-brand {
+  color: #5cb85c !important;
+  transition: all 0.25s ease-out; }
+  .navbar-brand:hover {
+    color: #80c780 !important; }
+
+.dashboard .dashboard__title {
+  color: #5cb85c;
+  font-weight: 200; }
+
+.dashboard .dashboard__edit {
+  position: absolute;
+  right: 0;
+  top: 50%; }
+  .dashboard .dashboard__edit a {
+    color: #8a8a8a;
+    transition: all 0.25s ease-out; }
+    .dashboard .dashboard__edit a:hover {
+      color: #5cb85c;
+      text-decoration: none; }

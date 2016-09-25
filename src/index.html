@@ -7,10 +7,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <base href="/">
+        <script src="https://use.fontawesome.com/7f71ebc01b.js"></script>
         <!--build:css css/style.min.css-->
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="node_modules/metismenu/dist/metisMenu.css">
-        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="node_modules/angular-ui-notification/dist/angular-ui-notification.min.css">
         <link rel="stylesheet" href="css/vendor/sb-admin-2.css">
         <link rel="stylesheet" href="css/vendor/morris.css">
@@ -20,7 +20,7 @@
     </head>
     <body ng-app="pymeFbApp">
       <div>
-          <div ng-view class="container"></div>
+          <div ng-view></div>
       </div>
     <!--build:js js/main.min.js -->
     <script type="text/javascript" src="node_modules/angular/angular.js"></script>
@@ -31,7 +31,9 @@
     <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="node_modules/metismenu/dist/metisMenu.js"></script>
-
+    <script type="text/javascript" src="node_modules/ng-flow/dist/ng-flow-standalone.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-messages/angular-messages.js"></script>
+    <script type="text/javascript" src"js/vendor/sb-admin-2.js"></script>
     <script type="text/javascript" src="js/vendor/raphael.js"></script>
     <script type="text/javascript" src="js/vendor/morris.js"></script>
     <script type="text/javascript" src="js/data/morris-data.js"></script>
@@ -43,10 +45,12 @@
     <script type="text/javascript" src="js/app.constants.js"></script>
 
     <script type="text/javascript" src="js/services/data.js"></script>
+    <script type="text/javascript" src="js/services/session.js"></script>
 
     <script type="text/javascript" src="js/controllers/login.js"></script>
     <script type="text/javascript" src="js/controllers/dashboard.js"></script>
     <script type="text/javascript" src="js/controllers/register.js"></script>
+    <script type="text/javascript" src="js/controllers/edit.js"></script>
     <!-- endbuild -->
     </body>
 </html>

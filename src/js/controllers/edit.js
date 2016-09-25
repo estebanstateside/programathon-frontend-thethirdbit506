@@ -3,13 +3,13 @@
 
     angular
         .module('pymeFbApp')
-        .controller('RegisterController', ['dataService', 'Notification', '$location', RegisterController]);
+        .controller('EditController', ['dataService', 'Notification', '$location', EditController]);
 
-    function RegisterController(dataService, Notification) {
+    function EditController(dataService, Notification) {
         var vm = this;
         vm.formData = {};
 
-        vm.title = "Registrar";
+        vm.title = "Editar información";
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;

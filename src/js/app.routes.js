@@ -13,7 +13,13 @@
             .when('/registro', {
                 templateUrl: 'views/register.html',
                 controller: 'RegisterController',
-                controllerAs: 'register'
+                controllerAs: 'perfil'
+            })
+
+            .when('/editar', {
+                templateUrl: 'views/register.html',
+                controller: 'EditController',
+                controllerAs: 'perfil'
             })
 
             .when('/administrador', {

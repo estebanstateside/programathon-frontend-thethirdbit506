@@ -1,0 +1,7 @@
+.navbar-brand {
+    color: $color-green !important;
+    transition: $transition;
+    &:hover {
+        color: lighten($color-green, 10%) !important;
+    }
+}
