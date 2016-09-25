@@ -60,7 +60,7 @@
 
                 if (!(isPrivate && sessionService.isValid())) {
                     location.path('/inicio');
-                }else if(!$rootScope.sessionData){
+                }else if(!rootScope.sessionData){
                   sessionService.loadToRoot();
                 }
 
