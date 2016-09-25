@@ -35,8 +35,12 @@
             return $http.get(constants.api + '/preguntas');
         }
 
-        function getResponses(id) {
-            return $http.get(constants.api + '/respuestas/id/' + id);
+        function getResponses(id, start, end) {
+            if (start && end) {
+                return $http.get(constants.api + '/respuestas/id/' + id + '/start/'+ start + '/end/' + end);
+            } else {
+                return $http.get(constants.api + '/respuestas/id/' + id);
+            }
         }
 
         function login(formData) {

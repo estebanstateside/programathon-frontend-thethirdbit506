@@ -9,8 +9,8 @@
         var vm = this;
         vm.formData = {};
 
-        vm.title = "Editar información";
-        vm.submit = "Actualizar información";
+        vm.title = "Editar PYME";
+        vm.submit = "Editar PYME";
         vm.loadedFromApi = false;
         vm.userDisabled = true;
         vm.isRegister = false;
