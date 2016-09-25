@@ -8,8 +8,9 @@
         var vm = this;
 
         vm.code = getURLParameter('code');
+        vm.PymeID = $rootScope.sessionData.PymeID;
 
-        dataService.getPyme($rootScope.sessionData.PymeID).then(function(pyme){
+        dataService.getPyme(vm.PymeID).then(function(pyme){
           vm.business = pyme.data;
 
           vm.socialLinks = [];
