@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .service('sessionService', ['$rootScope', '$http', '$cookies', sessionService]);
+        .service('sessionService', ['$rootScope', '$http', '$cookies', '$q', 'constants', sessionService]);
 
-    function sessionService($rootScope, $http, $cookies) {
+    function sessionService($rootScope, $http, $cookies, $q, constants) {
 
         function isValid() {
             var Usuario = $cookies.get('Usuario') || '';

@@ -5,6 +5,7 @@
             'ngRoute',
             'ui-notification',
             'flow',
+            'validation.match',
             'ngMessages',
             'facebook',
             'ngCookies',
