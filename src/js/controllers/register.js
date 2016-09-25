@@ -3,9 +3,9 @@
 
     angular
         .module('pymeFbApp')
-        .controller('RegisterController', ['dataService', 'Notification', '$location', RegisterController]);
+        .controller('RegisterController', ['dataService', 'gendersService', 'sectorsService', 'Notification', '$location', RegisterController]);
 
-    function RegisterController(dataService, Notification) {
+    function RegisterController(dataService, gendersService, sectorsService, Notification) {
         var vm = this;
         vm.formData = {};
 
@@ -13,6 +13,14 @@
 
         dataService.getCountries().then(function(data) {
             vm.countries = data.data;
+        });
+
+        gendersService.getGenders().then(function(data) {
+            vm.genders = data.data;
+        });
+
+        sectorsService.getSectors().then(function(data) {
+            vm.sectors = data.data;
         });
 
         vm.cleanForm = function () {
@@ -27,6 +35,19 @@
             //
             // }
         };
+
+        vm.getStates = function (id) {
+           var choosenCountry = vm.countries.filter( function ( data ) {
+              return data.id === id;
+            })[0];
+
+            vm.estados = choosenCountry.estados;
+        }
+
+        vm.file  = function (file) {
+            vm.isFile = file;
+            console.log(file);
+        }
 
         vm.send = function (data) {
             console.log(data);
