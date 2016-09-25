@@ -116,8 +116,8 @@
                             <div class="form-group">
                                 <label>Adjuntar logo</label>
                                 <div class="file-upload form__image" flow-init>
-                                    <img flow-img="$flow.files[0]" />
-                                    <img ng-if="perfil.loadedFromApi" src="{{perfil.formData.logo}}" alt="" width="225" height="225" />
+                                    <img src="{{perfil.isFile}}"/>
+                                    <img ng-if="!perfil.isFile && perfil.loadedFromApi" src="{{perfil.formData.logo}}" alt="" width="225" height="225" />
                                     <div>
                                         <input type="file" name="logo" flow-btn ngf-select="perfil.file(perfil.formData.logo)" width="225" height="225" ng-model="perfil.formData.logo" required>
                                     </div>
